@@ -1,0 +1,123 @@
+---
+---
+
+div#scene > div {
+    display: none;
+}
+
+div#scene > div#section-controls {
+    display: block;
+}
+
+div#scene.overview div#section-cta,
+div#scene.overview div#section-battlefronts {
+    display: block;
+}
+
+div#scene.battlefronts div#section-battlefronts {
+    display: block;
+}
+
+div#scene.campaigns div#section-campaigns {
+    display: block;
+}
+
+div#scene.problems div#section-problems {
+    display: block;
+}
+
+div#scene.teams div#section-teams {
+    display: block;
+}
+
+div#scene.releases div#section-releases {
+    display: block;
+}
+
+div#scene.valhalla div#section-valhalla {
+    display: block;
+}
+
+div#scene.help div#section-help {
+    display: block;
+}
+
+div#scene.all div#section-cta,
+div#scene.all div#section-battlefronts,
+div#scene.all div#section-campaigns,
+div#scene.all div#section-problems,
+div#scene.all div#section-teams,
+div#scene.all div#section-releases,
+div#scene.all div#section-valhalla,
+div#scene.all div#section-help {
+    display: block;
+}
+
+div#options.option-top .bottom {
+    display: none;
+}
+
+/* ?filter-* URLs */
+
+{% for battlefront in site.data.battlefronts %}
+
+div#filter.filter-battlefront-{{battlefront.id}} #section-campaigns .campaign {
+    display: none;
+}
+
+div#filter.filter-battlefront-{{battlefront.id}} #section-campaigns .battlefront-{{battlefront.id}} {
+    display: block;
+}
+
+{% endfor %}
+
+/* ?select-* URLs */
+
+{% for battlefront in site.data.battlefronts %}
+
+div#select.select-battlefront-{{battlefront.id}} #section-battlefronts .battlefront {
+    display: none;
+}
+
+div#select.select-battlefront-{{battlefront.id}} #section-battlefronts #battlefront-{{battlefront.id}} {
+    display: block;
+}
+
+{% endfor %}
+
+{% for campaign in site.data.campaigns %}
+
+div#select.select-campaign-{{campaign.id}} #section-campaigns .campaign {
+    display: none;
+}
+
+div#select.select-campaign-{{campaign.id}} #section-campaigns #campaign-{{campaign.id}} {
+    display: block;
+}
+
+{% endfor %}
+
+{% for team in site.data.teams %}
+
+div#select.select-team-{{team.id}} #section-teams .team {
+    display: none;
+}
+
+div#select.select-team-{{team.id}} #section-teams #team-{{team.id}} {
+    display: block;
+}
+
+{% endfor %}
+
+{% for release in site.data.releases %}
+
+div#select.select-release-{{release.id | replace: ".", "_" }} #section-releases .release {
+    display: none;
+}
+
+div#select.select-release-{{release.id | replace: ".", "_" }} #section-releases #release-{{release.id | replace: ".", "_" }} {
+    display: block;
+}
+
+{% endfor %}
+

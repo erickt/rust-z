@@ -1,0 +1,261 @@
+# Battlefronts
+#
+# These are the major activities the project is engaged in. They
+# change rarely. The purpose of this list is to show users what types
+# of improvements they should expect out of Rust, to direct
+# contributors to the most important areas of improvement, and to get
+# both excited about the direction.
+#
+# They are divided into 'top' battlefronts, and all the others.  The
+# number of top battlefronts should be few because they will be
+# presented to the reader in the default view. *Subjects that we talk
+# about to sell Rust are top battlefronts*. Everything else is not,
+# but may be used to organize other work.
+#
+# The pitch should justify itself in the context of the broader
+# project vision. Why this is important and exciting. The pitch is the
+# opportunity to mention long term goals that may not be directly
+# represented in the battleplan. It can include links to critical
+# context. They are listed in the priority order, where the priority
+# should focus on the most active, exciting battlefronts, and those in
+# the most need of contributions.
+
+-
+  id: mir
+  name: MIR
+  team: compiler
+  top: true
+  pitch: >
+    The Rust compiler is undergoing a major refactoring, to introduce
+    a "mid-level" IR, or "MIR". The MIR is a representation of Rust
+    source code that is easier to reason about than the full Rust
+    syntax, and will enable a number of improvements, including
+    [simpler translation](#campaign-mir-trans),
+    [incremental-compilation](#campaign-incremental-compilation), and
+    new optimizations.
+
+-
+  id: cross
+  name: Cross compilation
+  team: tools
+  top: true
+  pitch: >
+    Rust freaking runs everywhere, y'know? And if it doesn't now, it
+    will soon. Rust already provides a better cross-compilation
+    experience better than most programmers have ever encountered, but
+    we're not satisfied yet.  Rust is going to open up systems and
+    embedded programming to vast new audiences by making it trivial to
+    target every platform under the sun.
+
+-
+  id: diagnostics
+  name: rustc diagnostics
+  team: compiler
+  top: true
+  pitch: >
+    A powerful language is nothing without a user-friendly compiler,
+    and Rust is a _very_ powerful language. With Rust's paradigm-shattering
+    borrowchecker there is a lot for newbies to learn, and so Rust's
+    error messages need to guide them in the right direction, etc.
+
+-
+  id: ides
+  name: IDE integration
+  team: tools
+  top: true
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a
+    mauris libero. Sed sit amet diam magna. Vivamus ut libero iaculis,
+    pellentesque enim nec, laoreet diam. Quisque in tellus in tortor
+    feugiat mollis in vel nunc. Integer dapibus, quam eu vestibulum
+    suscipit, dolor nibh pretium arcu, id posuere risus nunc et
+    leo. Sed interdum diam sapien, eu sollicitudin ex semper sit
+    amet. Mauris accumsan massa at erat consequat rutrum id lobortis
+    leo. Quisque laoreet risus quis tortor maximus malesuada. Proin in
+    eleifend diam.
+
+# Other battlefronts
+
+-
+  id: lang
+  name: Language development
+  team: lang
+  pitch: >
+    Fusce vitae aliquam odio, vel dignissim diam. Donec eu bibendum
+    orci. Vivamus tempus elit id dolor sollicitudin viverra. Aenean
+    lacus odio, maximus a lacus pulvinar, tincidunt congue
+    ante. Maecenas ullamcorper dictum dignissim. Cras interdum enim ut
+    libero pharetra interdum. Nullam eget massa ornare, tempor arcu
+    non, ultricies arcu. Nam vitae leo a enim rutrum lobortis. Fusce
+    aliquet lacinia magna id venenatis. Sed lacinia in dolor a
+    porta. Curabitur maximus turpis non tortor accumsan
+    gravida. Praesent vitae sem hendrerit, vulputate felis et,
+    accumsan enim. Curabitur et odio ac lectus elementum
+    imperdiet. Maecenas consequat mattis lacus id vehicula.
+
+-
+  id: stdlib
+  name: Standard library maintenance
+  team: libs
+  pitch: >
+    Nullam semper euismod arcu et convallis. Sed fermentum, tellus vel
+    bibendum ullamcorper, mauris velit sodales diam, a efficitur
+    tortor massa sit amet libero. Maecenas at enim eros. Vestibulum
+    luctus pellentesque lorem, tristique commodo massa congue
+    vitae. Pellentesque ullamcorper euismod ante at bibendum. Sed quis
+    semper nibh. Aenean porta ligula eget est rhoncus, auctor sodales
+    augue hendrerit.
+
+-
+  id: perf
+  name: Performance
+  team: compiler
+  pitch: >
+    Vivamus luctus dui dolor, eget congue nunc mattis eget. Aenean at
+    mi in nisi commodo rhoncus vel a arcu. Fusce condimentum augue at
+    ligula tempus fermentum. Praesent hendrerit ligula nisl, nec
+    elementum justo euismod at. Aenean lacinia leo ipsum, vitae
+    laoreet nisl rutrum et. Morbi a dolor id sem congue
+    sagittis. Vestibulum eu eros dignissim, mattis sapien ac,
+    imperdiet dui. Fusce volutpat, sem eu eleifend ornare, sapien
+    sapien congue mi, non malesuada nulla nibh sit amet
+    felis. Pellentesque pellentesque libero in velit pulvinar, vel
+    vestibulum felis iaculis. Fusce urna massa, ornare eu turpis in,
+    hendrerit ultricies leo. Suspendisse porttitor rutrum nunc. Nulla
+    consequat nunc a tristique scelerisque. Suspendisse nec sodales
+    tortor. Suspendisse iaculis tincidunt leo ac egestas.
+
+-
+  id: community
+  name: Community building
+  team: community
+  pitch: >
+    Cras ex massa, aliquet id nunc in, imperdiet convallis
+    quam. Aenean pharetra fringilla magna sed lacinia. Mauris ac
+    lectus ut sem egestas malesuada ac a metus. Nam turpis nisi,
+    pellentesque in ipsum id, facilisis dapibus justo. Morbi non purus
+    tincidunt, tincidunt lorem at, maximus diam. Sed scelerisque
+    eleifend odio ac suscipit. Etiam eu odio eu velit ullamcorper
+    elementum. Aliquam erat volutpat. Donec non augue eget lectus
+    convallis malesuada et tincidunt magna. Vestibulum rutrum
+    ullamcorper ullamcorper. Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Donec sit amet mauris augue. Integer dictum
+    mauris feugiat nibh ultrices, non sagittis magna molestie.
+
+-
+  id: debugging
+  name: Debugging
+  team: tools
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec
+    est placerat, gravida nibh id, accumsan ipsum. In eget facilisis
+    justo. Etiam vehicula nibh dolor. Maecenas elementum magna sem,
+    sit amet hendrerit mi iaculis sed. Aenean vel hendrerit leo. Etiam
+    convallis dui vitae diam consectetur dapibus. Nam ac metus
+    dolor. Aliquam vestibulum nunc non leo elementum
+    dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et
+    ultrices posuere cubilia Curae; Donec rhoncus volutpat lectus et
+    varius. Sed mauris est, tincidunt sit amet nisl sit amet, ornare
+    vulputate sem.
+
+-
+  id: homu.io
+  name: homu.io adoption
+  team: community
+  pitch: >
+    Morbi libero risus, molestie non volutpat ac, laoreet in
+    est. Maecenas vitae laoreet sem. Aenean ut lectus at lectus
+    malesuada viverra quis aliquam massa. Nam vel elit semper, luctus
+    dui dictum, venenatis metus. Aliquam rhoncus felis enim, non
+    consectetur ex malesuada quis. Etiam dapibus, lacus quis tincidunt
+    aliquet, mi neque ultrices ante, nec aliquet tellus ipsum a
+    est. Sed sit amet nisi tortor. Maecenas gravida, dui at pulvinar
+    pharetra, augue ex consectetur risus, vitae pellentesque ex sem
+    vitae massa. Integer sed velit ultricies velit varius
+    pretium. Nullam quis faucibus nisi.
+
+-
+  id: book2
+  name: Book rewrite
+  team: docs
+  pitch: >
+    Nam ac erat nisl. Phasellus condimentum cursus nibh a
+    pellentesque. Nullam efficitur felis in massa gravida, ut sagittis
+    justo suscipit. Praesent dignissim ut orci vel laoreet. Proin et
+    urna purus. Aenean eget dolor nec ante lobortis malesuada vel in
+    mauris. Morbi semper consectetur nibh, vitae feugiat risus
+    ullamcorper vitae. Maecenas commodo sed ante molestie
+    venenatis. Vivamus accumsan sapien at metus rutrum, at sagittis
+    nulla interdum. Proin id mauris faucibus, tempor velit sed,
+    aliquet ex. Cras turpis arcu, aliquet sed dolor eget, dapibus
+    tincidunt leo. Cras vitae ligula volutpat, lobortis odio eu,
+    pellentesque arcu. Mauris vel velit turpis. Cras pulvinar dui eget
+    quam ornare, vel dictum nunc aliquet. In at iaculis ex.
+
+-
+  id: rustfmt
+  name: rustfmt
+  team: tools
+  pitch: >
+    Phasellus in ex erat. Praesent id dapibus justo. Phasellus
+    pulvinar egestas diam vitae dapibus. Aliquam id felis ut felis
+    molestie pulvinar. Nunc dapibus lacus nisl, ac volutpat risus
+    pretium eu. Proin mattis ante at sem suscipit interdum. Cras ut
+    tellus bibendum, dapibus arcu vel, faucibus sem. Morbi laoreet
+    aliquet nunc in egestas.
+
+-
+  id: rustbridge
+  name: RustBridge organization
+  team: community
+  pitch: >
+    Vestibulum rutrum ultrices mauris in suscipit. Ut at sollicitudin
+    augue, eu consequat felis. Integer lobortis gravida urna, sit amet
+    venenatis mauris volutpat a. Aliquam id augue commodo leo lobortis
+    ullamcorper a ac dolor. Sed id vulputate augue. Duis blandit
+    fermentum felis, vel vehicula lectus mollis eu. Duis laoreet
+    pretium ex eu ultricies. Mauris dictum ullamcorper augue, ut
+    tristique erat fermentum vitae. Donec quis ante nisl. Sed a
+    imperdiet dui. Aenean a eros egestas, auctor lectus nec, imperdiet
+    lorem.
+
+-
+  id: syntax-extensions
+  name: Syntax extensions
+  team: lang
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
+    amet risus ornare nulla volutpat convallis. Duis metus odio,
+    egestas iaculis mattis quis, elementum at leo. Aliquam eget
+    euismod elit. Aenean diam mi, gravida eu mauris ut, cursus
+    fringilla ante. Sed in nulla mattis, vulputate elit quis, luctus
+    augue. In ultrices, dolor vitae blandit tincidunt, mi elit
+    tincidunt turpis, sit amet fermentum nisi nunc eget elit. Donec
+    vulputate ornare dolor a maximus. Maecenas mauris augue, fringilla
+    quis facilisis eget, fermentum sit amet turpis.
+-
+  id: linker-independence
+  name: Linker independence
+  team: tools
+  pitch: >
+    Suspendisse et augue fermentum, egestas risus in, sagittis mi. Sed
+    id bibendum ligula. Maecenas sed eleifend odio, quis eleifend
+    augue. In dapibus erat quam, at sagittis lorem volutpat vitae. In
+    vel hendrerit leo. Donec eget elit quam. Phasellus eget tortor
+    molestie, sagittis sapien eget, rhoncus eros. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+-
+  id: infra-security
+  name: Infrastructure security
+  team: tools
+  pitch: >
+    Pellentesque habitant morbi tristique senectus et netus et
+    malesuada fames ac turpis egestas. Nam in leo sagittis, cursus
+    tellus lacinia, ullamcorper lorem. In hac habitasse platea
+    dictumst. Quisque nec ipsum sollicitudin urna euismod
+    blandit. Aliquam venenatis laoreet auctor. Nulla convallis neque
+    id nisi venenatis, tincidunt efficitur massa tristique. Nulla et
+    eros at lacus aliquet interdum. Duis facilisis eleifend ex sit
+    amet fermentum. Nulla tristique orci lacus, sed maximus leo
+    gravida at. Sed nec elementum turpis.

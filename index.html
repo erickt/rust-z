@@ -1,0 +1,337 @@
+---
+title: Battleplan Rust - A view into the Rust roadmap
+layout: incredible
+---
+
+<h1>Battleplan Rust</h1>
+
+<div id="section-controls">
+  <span id="scene-overview" class="scene">overview</span>
+  <span class="scene">battlefronts</span>
+  <span class="scene">campaigns</span>
+  <span class="scene">problems</span>
+  <span class="scene">teams</span>
+  <span class="scene">releases</span>
+  <span class="scene">valhalla</span>
+  <span class="scene">help</span>
+  <span class="scene">all</span>
+  <span id="toggle-top" class="toggle">top</span>
+</div>
+
+<div id="section-cta">
+
+  <h2>A Call to Arms!</h2>
+
+  {{ site.data.cta | markdownify }}
+
+</div>
+
+<div id="section-battlefronts">
+
+  <h2>Battlefronts</h2>
+
+  <p>
+    Battlefronts are lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Proin tristique leo ac ipsum finibus
+    egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
+    justo. Vestibulum a pulvinar nisl. Nullam condimentum, quam in
+    laoreet placerat, risus nunc sodales ipsum, convallis fringilla
+    massa ligula in ante. Suspendisse hendrerit metus vitae tincidunt
+    varius. Nullam tristique varius posuere. Morbi auctor sit amet
+    urna a porttitor. Fusce nisi dolor, tincidunt ut sem id, finibus
+    tincidunt tellus. Aenean suscipit risus orci, in condimentum metus
+    efficitur sit amet. Duis pharetra congue eleifend. Mauris accumsan
+    aliquet mi nec ullamcorper. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+  </p>
+
+  {% for battlefront in site.data.battlefronts %}
+
+    {% if battlefront.top %}
+      {% assign top-class = "top" %}
+    {% else %}
+      {% assign top-class = "bottom" %}
+    {% endif %}
+
+    <div id="battlefront-{{battlefront.id}}"
+        class="battlefront {{top-class}}">
+      <h3>
+        {{battlefront.name}}
+	{% include tag.html type="battlefront" id=battlefront.id %}
+      </h3>
+      <div>{{ battlefront.pitch | markdownify }}</div>
+
+      <div>
+        {% for campaign in site.data.campaigns %}
+          {% if campaign.battlefront != battlefront.id %}
+            {% continue %}
+          {% endif %}
+          {% if campaign.top %}
+
+            <div>
+	      {% include tag.html type="campaign" id=campaign.id %}
+              <em>{{campaign.goal}}</em>.</br>{{campaign.pitch}}
+	      <div>
+		<em>Expected release</em>:
+		{% include tag.html type="release" id=campaign.release %}
+	      </div>
+            </div>
+        
+          {% endif %}
+
+        {% endfor %}
+
+        <a href="#campaigns?filter-battlefront={{battlefront.id}}">Campaign details</a>.
+
+      </div>
+      
+      <div>
+	{% include tag.html type="team" id=battlefront.team %}
+      </div>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div id="section-campaigns">
+
+  <h2>Campaigns</h2>
+
+  <p>
+    Campaigns are lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Proin tristique leo ac ipsum finibus
+    egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
+    justo. Vestibulum a pulvinar nisl. Nullam condimentum, quam in
+    laoreet placerat, risus nunc sodales ipsum, convallis fringilla
+    massa ligula in ante. Suspendisse hendrerit metus vitae tincidunt
+    varius. Nullam tristique varius posuere. Morbi auctor sit amet
+    urna a porttitor. Fusce nisi dolor, tincidunt ut sem id, finibus
+    tincidunt tellus. Aenean suscipit risus orci, in condimentum metus
+    efficitur sit amet. Duis pharetra congue eleifend. Mauris accumsan
+    aliquet mi nec ullamcorper. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+  </p>
+
+  {% for campaign in site.data.campaigns %}
+
+    {% if campaign.top %}
+      {% assign top-class = "top" %}
+    {% else %}
+      {% assign top-class = "bottom" %}
+    {% endif %}
+
+    <div id="campaign-{{campaign.id}}"
+        class="campaign battlefront-{{campaign.battlefront}} {{top-class}}">
+      <h3>
+        {{campaign.goal}}
+	{% include tag.html type="campaign" id=campaign.id %}
+      </h3>
+      <div>{{campaign.pitch | markdownify }}</div>
+      <div>ETA: {{campaign.eta}}</div>
+
+      <div>
+	{% include tag.html type="battlefront" id=campaign.battlefront %}
+        {% for battlefront in site.data.battlefronts %}
+          {% if battlefront.id != campaign.battlefront %}
+            {% continue %}
+          {% endif %}
+	  {% include tag.html type="team" id=battlefront.team %}
+        {% endfor %}
+	{% include tag.html type="release" id=campaign.release %}
+      </div>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div id="section-problems">
+
+  <h2>Problems</h2>
+
+  <p>
+    Problems are lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Proin tristique leo ac ipsum finibus
+    egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
+    justo. Vestibulum a pulvinar nisl. Nullam condimentum, quam in
+    laoreet placerat, risus nunc sodales ipsum, convallis fringilla
+    massa ligula in ante. Suspendisse hendrerit metus vitae tincidunt
+    varius. Nullam tristique varius posuere. Morbi auctor sit amet
+    urna a porttitor. Fusce nisi dolor, tincidunt ut sem id, finibus
+    tincidunt tellus. Aenean suscipit risus orci, in condimentum metus
+    efficitur sit amet. Duis pharetra congue eleifend. Mauris accumsan
+    aliquet mi nec ullamcorper. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+  </p>
+
+  {% for problem in site.data.problems %}
+
+    <div id="problem-{{problem.id}}" class="problem">
+      <h3>
+	{% include tag.html type="problem" id=problem.id %}
+      </h3>
+      <div>{{problem.pitch | markdownify }}</div>
+      <div><em>Links: TODO</em></div>
+
+      <div>
+	{% include tag.html type="battlefront" id=problem.battlefront %}
+        {% for battlefront in site.data.battlefronts %}
+          {% if battlefront.id != problem.battlefront %}
+            {% continue %}
+          {% endif %}
+	  {% include tag.html type="team" id=battlefront.team %}
+        {% endfor %}
+      </div>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div id="section-teams">
+
+  <h2>Teams</h2>
+
+  <p>
+    Teams are lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Proin tristique leo ac ipsum finibus
+    egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
+    justo. Vestibulum a pulvinar nisl. Nullam condimentum, quam in
+    laoreet placerat, risus nunc sodales ipsum, convallis fringilla
+    massa ligula in ante. Suspendisse hendrerit metus vitae tincidunt
+    varius. Nullam tristique varius posuere. Morbi auctor sit amet
+    urna a porttitor. Fusce nisi dolor, tincidunt ut sem id, finibus
+    tincidunt tellus. Aenean suscipit risus orci, in condimentum metus
+    efficitur sit amet. Duis pharetra congue eleifend. Mauris accumsan
+    aliquet mi nec ullamcorper. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+  </p>
+
+  {% for team in site.data.teams %}
+
+  <div id="team-{{team.id}}" class="team">
+    <h3>
+      {{team.name}}
+      {% include tag.html type="team" id=team.id %}
+    </h3>
+      <div>
+        {% for battlefront in site.data.battlefronts %}
+          {% if battlefront.team != team.id %}
+            {% continue %}
+          {% endif %}
+          {% include tag.html type="battlefront" id=battlefront.id %}
+        {% endfor %}
+        {% for campaign in site.data.campaigns %}
+          {% for battlefront in site.data.battlefronts %}
+            {% if battlefront.team != team.id %}
+              {% continue %}
+            {% endif %}
+            {% if campaign.battlefront != battlefront.id %}
+              {% break %}
+            {% endif %}
+            {% include tag.html type="campaign" id=campaign.id %}
+          {% endfor %}
+        {% endfor %}
+        {% for problem in site.data.problems %}
+          {% for battlefront in site.data.battlefronts %}
+            {% if battlefront.team != team.id %}
+              {% continue %}
+            {% endif %}
+            {% if problem.battlefront != battlefront.id %}
+              {% break %}
+            {% endif %}
+            {% include tag.html type="problem" id=problem.id %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+  </div>
+
+  {% endfor %}
+
+</div>
+
+<div id="section-releases">
+  <h2>Rust Releases</h2>
+
+  <h3>Future releases</h3>
+
+  {% for release in site.data.releases %}
+
+    {% if release.future %}
+      <div id="release-{{release.id | replace: ".", "_" }}" class="release">
+        {% include tag.html type="release" id=release.id %}
+        {% for campaign in site.data.campaigns %}
+	  {% if campaign.release != release.id %}
+	    {% continue %}
+	  {% endif %}
+	  {% include tag.html type="campaign" id=campaign.id %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  {% endfor %}
+
+  <h3>Past releases</h3>
+
+  {% for release in site.data.releases %}
+
+    {% if release.future %}
+      {% continue %}
+    {% endif %}
+
+    <div id="release-{{release.id}}" class="release">
+      {% include tag.html type="release" id=release.id %}
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div id="section-valhalla">
+  <h2>Hall of Heroes</h2>
+
+  This is where we archive completed campaigns. Find some way to include the
+  names of everybody who participated.
+</div>
+
+<div id="section-help">
+  <h2>What the hell is this?</h2>
+
+  <p>TODO answer the above question</p>
+
+  <h3>Important concepts</h3>
+
+  <ul>
+    <li><em>Battlefronts</em> are ...
+      Battlefronts are indicated with the indomitable red
+      <span class="tag tag-battlefront">battlefront</span>
+      tags.
+
+    <li><em>Campaigns</em> are ...
+      Campaigns are indicated with the powerful green
+      <span class="tag tag-campaign">campaign</span>
+      tags.
+
+    <li><em>Problems</em> is ...
+      Challenges we are interested in tackling are indicated with the powerful purple
+      <span class="tag tag-problem">problem</span>
+      tags.
+
+    <li><em>Tracking Issues</em>
+
+    <li><em>RFCs</em>
+
+    <li><em>Features</em>
+
+    <li><em>Teams</em> are ...
+      Teams are indicated with fearless blue
+      <span class="tag tag-team">team</span>
+      tags.
+  </ul>
+
+  <h3>How to help</h3>
+
+  <p>TODO</p>
+
+</div>

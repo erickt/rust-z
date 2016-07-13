@@ -1,0 +1,293 @@
+# Time-boxed initiatives to achieve a specific goal
+#
+# These are the things we're promising our users in upcoming versions
+# of Rust. Each one is a specific measurable deliverable with an
+# associated tracking issue. The tracking issue may link to other
+# issues, and thus campaigns may require multiple steps to complete.
+# Some campaigns correspond directly to features in the feature
+# pipeline.
+#
+# Like battleplans, 'top' campaigns are the ones we are trying to surface
+# and sell. Like battleplans, campaigns should be exciting calls to action.
+# People should want these things and want to contribute to their success.
+#
+# Potential additional fields: associated-rfcs/issues/etc, contributors.
+
+
+## cross campaigns
+
+-
+  id: rustup-ndk-android
+  goal: rustup can install the Android NDK and configure Cargo to use it
+  pitch: >
+    Nullam pretium, orci eget finibus pulvinar, justo ante volutpat
+    tellus, vitae fringilla purus erat et lacus. In placerat fermentum
+    ipsum, a iaculis leo venenatis posuere. Vivamus sit amet placerat
+    sem. Sed erat est, commodo quis turpis et, pretium tincidunt
+    mi. Nullam vel leo ligula. Curabitur eget elit nibh. Pellentesque
+    lorem dolor, consequat nec massa id, posuere fringilla
+    lectus. Aenean vestibulum euismod congue.
+  top: true
+  battlefront: cross
+  tracking-issue: TODO
+  eta: 2016-09-01
+  release: "1.13"
+  # tasks: tbd
+
+-
+  id: cargo-build-std
+  goal: Cargo can build std for targets for which there are no binaries available
+  pitch: >
+     Nam rutrum euismod velit, rutrum pretium erat venenatis
+     eleifend. Nulla eleifend mattis augue ut iaculis. Phasellus
+     gravida volutpat odio, id sodales justo imperdiet et. Donec
+     facilisis facilisis lobortis. Maecenas vestibulum vitae arcu nec
+     pulvinar. Duis cursus sed dolor sed tempor. Aliquam fringilla
+     neque id nisi viverra, nec ornare velit cursus. Nunc sed commodo
+     dolor.
+  top: true
+  battlefront: cross
+  tracking-issue: TODO
+  eta: 2017-01.01
+  release: "1.15"
+  # tasks: std-aware cargo RFC, rustup component install,
+  # rust-src packaging, std-aware cargo RFC implementation, compiler-rt
+
+-
+  id: target-emscripten
+  goal: Release a build of Rust that can target emscripten
+  pitch: >
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et
+     lacus diam. Phasellus non nibh id nunc maximus fringilla sit amet
+     eu est. Quisque lobortis congue sodales. Nulla gravida ipsum
+     tristique elit aliquet venenatis at et orci. Praesent ornare
+     venenatis metus et pulvinar. Integer lacus lectus, mattis ut
+     gravida eget, ultricies in est. Nunc varius ultricies sapien
+     tristique sagittis. Proin malesuada dui et luctus pharetra. Nunc
+     porta orci sit amet diam lobortis porta. Sed sit amet orci sed
+     risus blandit elementum. Donec lobortis turpis ut elit tempor
+     gravida. Morbi tincidunt urna risus, a posuere lorem egestas in.
+  top: true
+  battlefront: cross
+  tracking-issue: TODO
+  eta: 2016-10-01
+  release: "1.15"
+  # tasks: update Rust LLVM fork, update emscripten LLVM fork
+  # port emscripten LLVM patches to Rust LLVM fork, make Rust
+  # build system produce emscripten bins, update CI infrastructure
+  # to test emscripten, update release infrastructure to build
+  # and deploy emscripten targets, add instructions to acquire
+  # correct emscripten toolchain
+
+-
+  id: rustup-release
+  goal: Make rustup the default Rust installer
+  pitch: >
+     Interdum et malesuada fames ac ante ipsum primis in
+     faucibus. Vivamus gravida feugiat velit, et sollicitudin nulla
+     tincidunt nec. Etiam imperdiet hendrerit libero, at pulvinar
+     ex. Nunc id nulla pellentesque, gravida ipsum vitae, malesuada
+     sapien. Etiam sit amet sollicitudin lacus. Aliquam at odio
+     luctus, rutrum dolor sit amet, porta velit. Curabitur nec ex
+     eros. Morbi id metus eget sapien faucibus blandit.
+  top: true
+  battlefront: cross
+  tracking-issue: TODO
+  eta: TODO
+  release: "1.15"
+
+-
+  id: wasm-backend-proof
+  goal: Create a proof of concept of a MIR->WASM backend for rustc
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+    sagittis congue neque eget malesuada. Aliquam commodo augue metus,
+    viverra varius libero dignissim ultrices. Nunc sit amet fringilla
+    justo. Nam aliquam sit amet metus in semper. Aliquam tempor sem at
+    metus lacinia, et hendrerit turpis facilisis. Duis leo mauris,
+    porta pretium ultricies vitae, lobortis non mauris. Quisque a
+    fermentum leo. Aliquam interdum, nisl vitae sodales aliquam, nisl
+    nibh hendrerit neque, vel efficitur risus felis quis sapien. Etiam
+    viverra ligula luctus lectus mollis ultrices eget nec dolor.
+  battlefront: cross
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+## tools campaigns
+
+-
+  id: rustfmt-defaults
+  goal: Establish the default settings for rustfmt
+  pitch: >
+    Pellentesque egestas cursus felis, et lacinia dolor lacinia
+    eu. Donec ac dapibus massa. Praesent eget lorem sed sapien
+    volutpat dapibus. Morbi dolor purus, fermentum vitae porttitor at,
+    elementum id nulla. Mauris porta erat eget lorem ultrices
+    rutrum. Etiam in pharetra diam, at congue eros. Etiam vulputate,
+    arcu sed posuere volutpat, metus tellus sollicitudin nibh, eu
+    tincidunt nibh ligula et tellus. Maecenas vel sagittis ligula. In
+    pretium pulvinar velit, sit amet posuere ex aliquam
+    in. Suspendisse nibh ante, accumsan quis risus quis, aliquam
+    rhoncus ipsum. Fusce sit amet elit sagittis massa luctus
+    porta. Quisque tristique nisi et diam pulvinar, non efficitur elit
+    aliquam.
+  top: true
+  battlefront: tools
+  tracking-issue: TODO
+  eta: 2016-09-10
+  release: TBD
+
+-
+  id: debug-std
+  pitch: >
+    Donec aliquam fringilla ipsum. Duis interdum scelerisque
+    accumsan. Fusce id suscipit ipsum. Praesent vel volutpat
+    odio. Curabitur velit sapien, placerat non ipsum finibus,
+    fermentum fringilla lacus. Suspendisse potenti. Nullam aliquam
+    diam maximus lorem dictum, eu molestie magna convallis. Integer
+    mauris orci, imperdiet quis fermentum nec, semper sit amet
+    nibh. Nunc ullamcorper felis ut lectus consectetur
+    consequat. Aenean efficitur, odio non elementum laoreet, augue
+    dolor ultricies velit, non tempor felis magna at purus. Nunc at
+    tortor vitae ante dictum varius nec lobortis massa. Duis
+    tincidunt, dolor ut venenatis ultrices, turpis ligula viverra
+    odio, eu sollicitudin ipsum diam vel mi.
+  battlefront: tools
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+-
+  id: panic-abort-std
+  pitch: >
+    Mauris et dui odio. Donec vestibulum a arcu sit amet
+    rhoncus. Proin ex orci, hendrerit vitae neque at, lobortis maximus
+    ex. Ut placerat arcu et laoreet venenatis. Praesent sed pulvinar
+    diam, ut placerat augue. Cras vitae sollicitudin ex. Praesent
+    tincidunt lacus vitae ligula laoreet dapibus. Integer vitae
+    porttitor purus, eget faucibus nunc. Pellentesque habitant morbi
+    tristique senectus et netus et malesuada fames ac turpis
+    egestas. Morbi posuere libero urna, eu consequat orci rutrum
+    id. Cras sed maximus ex. Interdum et malesuada fames ac ante ipsum
+    primis in faucibus.
+  battlefront: tools
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+-
+  id: distro-packaging
+  pitch: >
+    Donec a nibh sit amet nisl vulputate interdum. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Nullam sed tincidunt est. Duis iaculis diam nulla, nec
+    ultrices erat blandit nec. Nunc sollicitudin interdum justo in
+    luctus. Maecenas nec pretium tortor. Mauris lacinia sapien vitae
+    risus vulputate pharetra.
+  battlefront: tools
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+-
+  id: platform-cargo-plugins
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+    aliquet quam. Pellentesque vulputate ante turpis, a sollicitudin
+    nunc efficitur vel. Fusce ultrices porttitor ullamcorper. Praesent
+    fringilla orci id volutpat scelerisque. Aenean fringilla mi
+    ex. Nullam ultricies, nisl eu mattis congue, dolor sapien
+    efficitur nunc, a molestie arcu dui a turpis. Pellentesque ac
+    auctor sem, ac sodales nunc. Morbi ac enim dui.
+  battlefront: tools
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+-
+  id: rustbuild-conversion
+  pitch: >
+    Sed vulputate dictum nunc, non faucibus erat pulvinar sit
+    amet. Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos himenaeos. In semper erat a facilisis
+    malesuada. Vivamus sagittis, odio ut sodales viverra, est magna
+    efficitur augue, eget lacinia dui urna eu dui. Ut fermentum lacus
+    eget felis congue, sit amet accumsan risus fringilla. Ut maximus
+    lacinia lacus ac tempus. Phasellus finibus, leo a fringilla
+    semper, turpis orci consectetur ipsum, in egestas arcu risus eu
+    quam. Interdum et malesuada fames ac ante ipsum primis in
+    faucibus.
+  battlefront: tools
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+
+## compiler campaigns
+
+-
+  id: mir-trans
+  goal: Activate the MIR-based code-generator by default
+  pitch: >
+    Pellentesque habitant morbi tristique senectus et netus et
+    malesuada fames ac turpis egestas. Nullam laoreet orci a finibus
+    tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et
+    ultrices posuere cubilia Curae; Phasellus a vestibulum
+    quam. Integer eget fringilla massa. Quisque non tellus
+    sem. Quisque ac ex et sapien fringilla molestie a et diam. Vivamus
+    nec felis vitae mauris blandit interdum quis nec ex. Mauris
+    vehicula ante eu tortor imperdiet, eget viverra est
+    dictum. Vivamus euismod sodales leo eget condimentum.
+  top: true
+  battlefront: mir
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+-
+  id: incremental-compilation
+  goal: Enable rustc to rebuild only code that has changed since the previous build
+  pitch: >
+    In a ex rutrum, mollis odio eget, sodales risus. Quisque nec
+    ligula odio. Suspendisse blandit nisi vel nisl elementum
+    efficitur. Vestibulum et viverra arcu. Proin viverra nulla et
+    massa vehicula convallis. Morbi mollis pharetra lectus elementum
+    fringilla. Nam accumsan ullamcorper laoreet. Maecenas blandit
+    malesuada leo ut vestibulum. Aenean semper massa nec dui
+    consectetur feugiat. Praesent et orci tincidunt, sagittis risus
+    nec, sollicitudin velit. Nunc eleifend nisi convallis lacus
+    posuere ullamcorper nec eget ante. In feugiat ut mi quis
+    feugiat. Proin semper lacus feugiat neque semper, vel eleifend
+    ipsum volutpat. In hendrerit efficitur velit vitae feugiat.
+  top: true
+  battlefront: mir
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+
+## other campaigns
+
+-
+  id: serde-on-stable
+  goal: Make serde work conveniently on stable Rust
+  pitch: >
+    Donec pulvinar gravida volutpat. Cum sociis natoque penatibus et
+    magnis dis parturient montes, nascetur ridiculus mus. Nullam
+    placerat, nulla sit amet tincidunt ornare, sem nunc lobortis
+    libero, sed sollicitudin turpis est non quam. Aenean non elit
+    arcu. Integer massa est, aliquet nec nisi id, auctor rhoncus
+    tellus. Etiam et euismod tellus, ut vestibulum arcu. Suspendisse
+    potenti. Pellentesque suscipit, sapien id sodales dapibus, est est
+    porttitor leo, vitae maximus ante mi vel tellus. Curabitur
+    ultricies malesuada commodo. Nam suscipit finibus interdum. Aenean
+    molestie ac orci eget faucibus. Curabitur bibendum eu tellus et
+    rutrum. Fusce non lectus scelerisque, tristique eros et, tempor
+    massa.
+  top: true
+  battlefront: syntax-extensions
+  tracking-issue: TODO
+  eta: TODO
+  release: TBD
+  # task https://github.com/rust-lang/rfcs/pull/1566
+

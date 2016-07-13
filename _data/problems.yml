@@ -1,0 +1,171 @@
+-
+  id: float-free-core
+  pitch: >
+    Suspendisse erat enim, tristique dignissim nunc vestibulum,
+    suscipit rhoncus risus. Phasellus ex dui, porta et nisl quis,
+    aliquet condimentum diam. Sed vulputate ex felis, at congue eros
+    blandit vitae. Morbi a justo velit. Nullam et lectus
+    dolor. Vivamus ac vestibulum diam. Donec mattis et nibh ut
+    bibendum. In vitae enim leo. Fusce porttitor enim sem,
+    pellentesque vulputate lorem varius et. Ut consectetur iaculis
+    erat, id blandit nisl. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus. Nullam suscipit metus
+    et nulla aliquam, venenatis maximus nisl laoreet.
+  # campaign-deps: [std-aware-cargo]
+  battlefront: cross
+  links: []
+
+-
+  id: rustup-ide-support
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+    malesuada, sapien id finibus convallis, risus mauris egestas arcu,
+    quis facilisis est tortor egestas justo. Proin tristique arcu eu
+    nibh finibus, vel elementum turpis sagittis. Nulla pellentesque
+    purus in arcu cursus egestas. Cras ac sagittis arcu, non pharetra
+    orci. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Praesent sed accumsan
+    lectus. Nulla ut dolor maximus, bibendum neque quis, dapibus arcu.
+  battlefront: ides
+  links: []
+
+-
+  id: rand-crate
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+    malesuada, sapien id finibus convallis, risus mauris egestas arcu,
+    quis facilisis est tortor egestas justo. Proin tristique arcu eu
+    nibh finibus, vel elementum turpis sagittis. Nulla pellentesque
+    purus in arcu cursus egestas. Cras ac sagittis arcu, non pharetra
+    orci. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Praesent sed accumsan
+    lectus. Nulla ut dolor maximus, bibendum neque quis, dapibus arcu.
+  battlefront: libs
+  links: []
+
+-
+  id: avr-backend
+  pitch: >
+    Etiam congue justo nec mauris efficitur, in malesuada mauris
+    imperdiet. Praesent id nisl et sem tempus condimentum. Nunc dictum
+    tempor massa, eu commodo nibh hendrerit nec. Mauris et lorem
+    bibendum, iaculis est at, interdum orci. Etiam euismod odio eu
+    tristique viverra. Donec sit amet sagittis tortor. Integer eu
+    libero justo. Ut scelerisque molestie dolor sed elementum. Lorem
+    ipsum dolor sit amet, consectetur adipiscing elit. Fusce felis
+    velit, sodales et risus accumsan, luctus tincidunt velit. Nunc
+    scelerisque, mauris at laoreet condimentum, libero nibh luctus
+    tortor, eu condimentum nibh neque in leo. Donec est justo, tempor
+    in iaculis sed, elementum et mauris. Vivamus ut lacus
+    elit. Suspendisse lacinia commodo leo sit amet viverra. Morbi
+    mattis ornare dui, ut malesuada justo lacinia non. Etiam pharetra
+    ex eu sem mollis sagittis.
+  battlefront: cross
+  links: []
+
+-
+  id: work-with-lld
+  pitch: >
+    Cras quis elit nunc. Duis aliquet diam ut ante consectetur, eu
+    pellentesque massa efficitur. Proin pulvinar imperdiet
+    ornare. Aliquam maximus sollicitudin purus, sed laoreet ex
+    condimentum a. Sed cursus malesuada urna sit amet semper. In hac
+    habitasse platea dictumst. Curabitur ac iaculis lectus, quis
+    volutpat est.
+  battlefront: cross
+  links: []
+
+-
+  id: feature-configuration
+  pitch: >
+    Duis fermentum lectus at laoreet elementum. Pellentesque habitant
+    morbi tristique senectus et netus et malesuada fames ac turpis
+    egestas. Nam et odio ultrices, molestie nibh eu, fringilla
+    mi. Curabitur porta placerat nisi id egestas. Morbi est diam,
+    vulputate sit amet arcu a, bibendum imperdiet arcu. Integer diam
+    ante, cursus et sodales at, congue sed tortor. Aliquam vel metus
+    viverra, condimentum lectus cursus, pellentesque mauris. Mauris
+    eget gravida lorem. Sed fringilla, libero et aliquet pellentesque,
+    lacus lacus venenatis dolor, at condimentum lorem velit sed
+    lorem. Curabitur commodo urna eget ex scelerisque, eget mollis
+    ligula hendrerit. Aliquam vehicula mauris eu magna fringilla,
+    condimentum congue lacus accumsan. Cras libero nisi, aliquam sed
+    elementum sit amet, tempus vitae justo.
+  battlefront: idkwhatever
+  links: []
+
+-
+  id: rustup-linux-arm-ndk
+  pitch: >
+    Nunc ut facilisis purus. Vestibulum odio est, dignissim efficitur
+    tortor sit amet, porta vulputate erat. Praesent vitae sollicitudin
+    odio. Praesent gravida, ligula quis ornare rhoncus, risus quam
+    placerat turpis, id posuere justo elit et orci. In sem orci,
+    suscipit eu mauris sed, bibendum rhoncus libero. Donec nisl lorem,
+    malesuada ut nulla ac, pellentesque fermentum arcu. Suspendisse in
+    enim mattis, luctus turpis malesuada, imperdiet neque. Duis
+    facilisis nisl eget nisi rhoncus, quis egestas metus
+    venenatis. Phasellus at venenatis libero. Vestibulum rutrum
+    iaculis erat ut eleifend. Praesent fermentum elit bibendum metus
+    lacinia hendrerit. Praesent pellentesque laoreet quam at volutpat.
+  battlefront: cross
+  links: []
+
+-
+  id: rustup-osx-ndk
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+    non convallis urna, vel bibendum lorem. Ut molestie venenatis
+    nulla, eu ultrices magna. Integer ultrices, lacus volutpat feugiat
+    pulvinar, erat ipsum porta enim, eu posuere nisl quam sit amet
+    mauris. Sed lobortis tellus ante, vel posuere dolor malesuada
+    quis. Ut aliquet lectus sit amet ligula auctor, sit amet commodo
+    quam fermentum. Maecenas cursus ante vel orci malesuada, mattis
+    commodo augue ultrices. Maecenas quis magna eu enim sollicitudin
+    ornare finibus vel nulla. Sed sit amet nunc bibendum, vulputate mi
+    finibus, convallis erat. Nam vel augue egestas, dictum ipsum at,
+    blandit est. Proin elementum mauris urna. Donec rhoncus, odio
+    convallis ultrices cursus, nisl tellus aliquam augue, nec
+    vestibulum neque lorem vel orci. Nunc lacinia purus risus, a
+    dapibus nisi pellentesque vel. Suspendisse potenti. Phasellus
+    iaculis urna nec pellentesque maximus. Vestibulum dictum nulla
+    eros.
+  battlefront: cross
+  links: []
+
+-
+  id: cross-testing
+  pitch: >
+    Nunc tristique ante metus, sed volutpat libero ornare
+    ut. Curabitur mattis felis congue tristique feugiat. Mauris
+    pellentesque rutrum libero eget consectetur. Pellentesque et felis
+    mi. Maecenas egestas interdum ullamcorper. Suspendisse egestas
+    diam lectus, a pretium elit tincidunt pulvinar. Vestibulum maximus
+    velit eu nunc pulvinar, vitae lobortis ipsum interdum. Integer
+    fermentum leo augue, ut dictum velit vestibulum vitae. Aliquam id
+    dignissim turpis. Donec eleifend rutrum libero, eget tincidunt
+    eros consectetur cursus. Curabitur et metus ac metus sodales porta
+    ut sit amet eros. Nunc sit amet ante quam. Nam finibus quam a
+    sapien lacinia bibendum.
+  battlefront: cross
+  links: []
+
+-
+  id: linux-to-32-bit-windows
+  pitch: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu
+    massa ac nisl porttitor vestibulum commodo sed nunc. Pellentesque
+    in ornare turpis. Nunc ut congue libero. Class aptent taciti
+    sociosqu ad litora torquent per conubia nostra, per inceptos
+    himenaeos. Nam eu facilisis purus. Quisque ut justo et nisi
+    hendrerit finibus quis eu quam. Pellentesque habitant morbi
+    tristique senectus et netus et malesuada fames ac turpis
+    egestas. Interdum et malesuada fames ac ante ipsum primis in
+    faucibus. Sed vitae risus pellentesque lacus aliquet semper et ut
+    leo. Nullam mi nisl, aliquet sed pretium ac, egestas imperdiet
+    risus. Vivamus non neque imperdiet, sodales risus sit amet, auctor
+    metus. Vivamus sit amet placerat felis.
+  battlefront: cross
+  links: []
+
+

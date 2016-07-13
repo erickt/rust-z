@@ -1,0 +1,145 @@
+html {
+    --battlefront-color: red;
+    --campaign-color: green;
+    --problem-color: purple;
+    --team-color: blue;
+    --release-color: cyan;
+    --valhalla-color: orange;
+    --system-color: grey;
+    font-size: 14pt;
+}
+
+body {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+h1 {
+    font-size: 1rem;
+}
+
+h2 {
+    background-color: black;
+    color: white;
+    padding: 4px 10px 4px 10px;
+    border-left-width: 8px;
+    border-left-style: solid;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+}
+
+div#section-cta > h2 {
+    border-color: var(--system-color);
+}
+
+div#section-battlefronts > h2 {
+    border-color: var(--battlefront-color);
+}
+
+div#section-campaigns > h2 {
+    border-color: var(--campaign-color);
+}
+
+div#section-problems > h2 {
+    border-color: var(--problem-color);
+}
+
+div#section-teams > h2 {
+    border-color: var(--team-color);
+}
+
+div#section-releases > h2 {
+    border-color: var(--release-color);
+}
+
+div#section-valhalla > h2 {
+    border-color: var(--valhalla-color);
+}
+
+div#section-help > h2 {
+    border-color: var(--system-color);
+}
+
+h3 {
+    border-top: 2px solid gray;
+    border-bottom: 1px solid gray;
+    background-color: #EEE;
+    padding-left: 10px;
+}
+
+h3 .tag {
+    margin-left: 20px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin: 0px;
+    margin-right: 8px;
+    line-height: 40px;
+    padding: 4px 10px 4px 10px;
+    color: white;
+    background-color: black;
+    border-left-width: 8px;
+    border-left-style: solid;
+    hyphens: none;
+}
+
+.tag > a {
+    color: white;
+    text-decoration: none;
+}
+
+.tag-battlefront {
+    border-color: var(--battlefront-color);
+}
+
+.tag-campaign {
+    border-color: var(--campaign-color);
+}
+
+.tag-problem {
+    border-color: var(--problem-color);
+}
+
+.tag-team {
+    border-color: var(--team-color);
+}
+
+.tag-release {
+    border-color: var(--release-color);
+}
+
+.toggle {
+    border: 1px solid black;
+    padding: 4px 10px 4px 10px;
+    cursor: pointer;
+}
+
+.option-top #toggle-top {
+    color: white;
+    background-color: black;
+}
+
+.scene {
+    border: 1px solid black;
+    padding: 4px 10px 4px 10px;
+    cursor: pointer;
+}
+
+.scene.selected {
+    color: white;
+    background-color: black;
+}
+
+#section-help em {
+    font-weight: bold;
+}
+
+div.bottom > h3 {
+    background-color: #BBC;
+}
+
+div.bottom {
+    background-color: #EEF;
+}

@@ -1,0 +1,6 @@
+<span class="tag tag-{{ include.type }}">
+  <!-- release id's contain dots that aren't valid in CSS identifiers -->
+  <a href="#{{ include.type }}s?select-{{ include.type }}={{ include.id | replace: ".", "_" }}">
+    {{ include.id }}
+  </a>
+</span>
