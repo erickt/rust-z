@@ -133,13 +133,14 @@
     porta. Quisque tristique nisi et diam pulvinar, non efficitur elit
     aliquam.
   top: true
-  battlefront: tools
+  battlefront: rustfmt
   tracking-issue: TODO
   eta: 2016-09-10
   release: TBD
 
 -
   id: debug-std
+  goal: "Deliver a standard library with full debug info for tier 1 platforms"
   pitch: >
     Donec aliquam fringilla ipsum. Duis interdum scelerisque
     accumsan. Fusce id suscipit ipsum. Praesent vel volutpat
@@ -153,13 +154,14 @@
     tortor vitae ante dictum varius nec lobortis massa. Duis
     tincidunt, dolor ut venenatis ultrices, turpis ligula viverra
     odio, eu sollicitudin ipsum diam vel mi.
-  battlefront: tools
+  battlefront: TODO
   tracking-issue: TODO
   eta: TODO
   release: TBD
 
 -
   id: panic-abort-std
+  goal: TODO
   pitch: >
     Mauris et dui odio. Donec vestibulum a arcu sit amet
     rhoncus. Proin ex orci, hendrerit vitae neque at, lobortis maximus
@@ -171,13 +173,14 @@
     egestas. Morbi posuere libero urna, eu consequat orci rutrum
     id. Cras sed maximus ex. Interdum et malesuada fames ac ante ipsum
     primis in faucibus.
-  battlefront: tools
+  battlefront: TODO
   tracking-issue: TODO
   eta: TODO
   release: TBD
 
 -
   id: distro-packaging
+  goal: TODO
   pitch: >
     Donec a nibh sit amet nisl vulputate interdum. Cum sociis natoque
     penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -185,13 +188,14 @@
     ultrices erat blandit nec. Nunc sollicitudin interdum justo in
     luctus. Maecenas nec pretium tortor. Mauris lacinia sapien vitae
     risus vulputate pharetra.
-  battlefront: tools
+  battlefront: TODO
   tracking-issue: TODO
   eta: TODO
   release: TBD
 
 -
   id: platform-cargo-plugins
+  goal: TODO
   pitch: >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
     aliquet quam. Pellentesque vulputate ante turpis, a sollicitudin
@@ -200,13 +204,14 @@
     ex. Nullam ultricies, nisl eu mattis congue, dolor sapien
     efficitur nunc, a molestie arcu dui a turpis. Pellentesque ac
     auctor sem, ac sodales nunc. Morbi ac enim dui.
-  battlefront: tools
+  battlefront: TODO
   tracking-issue: TODO
   eta: TODO
   release: TBD
 
 -
   id: rustbuild-conversion
+  goal: TODO
   pitch: >
     Sed vulputate dictum nunc, non faucibus erat pulvinar sit
     amet. Class aptent taciti sociosqu ad litora torquent per conubia
@@ -218,7 +223,7 @@
     semper, turpis orci consectetur ipsum, in egestas arcu risus eu
     quam. Interdum et malesuada fames ac ante ipsum primis in
     faucibus.
-  battlefront: tools
+  battlefront: TODO
   tracking-issue: TODO
   eta: TODO
   release: TBD

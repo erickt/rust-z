@@ -13,7 +13,6 @@
     et nulla aliquam, venenatis maximus nisl laoreet.
   # campaign-deps: [std-aware-cargo]
   battlefront: cross
-  links: []
 
 -
   id: rustup-ide-support
@@ -27,7 +26,6 @@
     montes, nascetur ridiculus mus. Praesent sed accumsan
     lectus. Nulla ut dolor maximus, bibendum neque quis, dapibus arcu.
   battlefront: ides
-  links: []
 
 -
   id: rand-crate
@@ -40,8 +38,7 @@
     orci. Cum sociis natoque penatibus et magnis dis parturient
     montes, nascetur ridiculus mus. Praesent sed accumsan
     lectus. Nulla ut dolor maximus, bibendum neque quis, dapibus arcu.
-  battlefront: libs
-  links: []
+  battlefront: TODO
 
 -
   id: avr-backend
@@ -61,7 +58,6 @@
     mattis ornare dui, ut malesuada justo lacinia non. Etiam pharetra
     ex eu sem mollis sagittis.
   battlefront: cross
-  links: []
 
 -
   id: work-with-lld
@@ -73,7 +69,6 @@
     habitasse platea dictumst. Curabitur ac iaculis lectus, quis
     volutpat est.
   battlefront: cross
-  links: []
 
 -
   id: feature-configuration
@@ -91,8 +86,7 @@
     ligula hendrerit. Aliquam vehicula mauris eu magna fringilla,
     condimentum congue lacus accumsan. Cras libero nisi, aliquam sed
     elementum sit amet, tempus vitae justo.
-  battlefront: idkwhatever
-  links: []
+  battlefront: TODO
 
 -
   id: rustup-linux-arm-ndk
@@ -109,7 +103,6 @@
     iaculis erat ut eleifend. Praesent fermentum elit bibendum metus
     lacinia hendrerit. Praesent pellentesque laoreet quam at volutpat.
   battlefront: cross
-  links: []
 
 -
   id: rustup-osx-ndk
@@ -131,7 +124,6 @@
     iaculis urna nec pellentesque maximus. Vestibulum dictum nulla
     eros.
   battlefront: cross
-  links: []
 
 -
   id: cross-testing
@@ -148,7 +140,6 @@
     ut sit amet eros. Nunc sit amet ante quam. Nam finibus quam a
     sapien lacinia bibendum.
   battlefront: cross
-  links: []
 
 -
   id: linux-to-32-bit-windows
@@ -166,6 +157,5 @@
     risus. Vivamus non neque imperdiet, sodales risus sit amet, auctor
     metus. Vivamus sit amet placerat felis.
   battlefront: cross
-  links: []
 
 

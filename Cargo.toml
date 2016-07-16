@@ -1,0 +1,9 @@
+[package]
+name = "battleplan"
+version = "0.1.0"
+authors = ["Brian Anderson <banderson@mozilla.com>"]
+
+[dependencies]
+error-chain = "0.2.1"
+clap = "2.9.2"
+yaml-rust = "0.3.3"
