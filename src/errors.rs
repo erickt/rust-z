@@ -12,6 +12,14 @@ error_chain! {
         "yaml scan error";
     }
 
-    errors { }
+    errors {
+        HttpStatus(e: u32) {
+            description("http request returned an unsuccessful status code")
+            display("http request returned an unsuccessful status code: {}", e)
+        }
+        FileNotFound {
+            description("file not found")
+        }
+    }
 }
 

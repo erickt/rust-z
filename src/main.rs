@@ -1,5 +1,8 @@
+#![feature(custom_attribute, custom_derive, plugin)]
+#![plugin(serde_macros)]
 #![allow(dead_code)]
 #![feature(question_mark)]
+#![feature(custom_derive)]
 #![recursion_limit = "1024"]
 
 #[macro_use]
@@ -7,6 +10,12 @@ extern crate error_chain;
 extern crate clap;
 extern crate yaml_rust as yaml;
 extern crate url;
+#[macro_use]
+extern crate hyper;
+extern crate chrono;
+extern crate serde;
+extern crate serde_json;
+extern crate serde_yaml;
 
 use yaml::{YamlLoader, Yaml};
 use std::fs::File;
@@ -17,7 +26,17 @@ use std::collections::BTreeMap;
 mod errors;
 use errors::*;
 
+macro_rules! verr {
+    ($fmt:expr, $($arg:tt)*) => (println!(concat!("validation error: ", $fmt), $($arg)*));
+}
+
 mod crawl;
+mod gh {
+    pub mod client;
+    pub mod models;
+    pub mod domain;
+    pub mod http;
+}
 
 fn main() {
     if let Err(e) = main_() {
@@ -142,10 +161,6 @@ struct Team {
 struct Release {
     id: String,
     future: bool,
-}
-
-macro_rules! verr {
-    ($fmt:expr, $($arg:tt)*) => (println!(concat!("validation error: ", $fmt), $($arg)*));
 }
 
 impl Battleplan {

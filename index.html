@@ -140,6 +140,9 @@ layout: incredible
       <div class="details">
 	<!-- Most of this stuff is tracked mechanically with the tool -->
 	<div>Steps complete: TODO x out of y steps</div>
+	<div>Last updated:
+	  {{ site.data.gen.crawl[campaign.tracking-link][0]['GitHubIssue']['updated_at'] }}
+	</div>
 	<div>ETA: {{campaign.eta}}</div>
 	<div>RFC: TODO</div>
 	<div>RFC PR: TODO</div>
