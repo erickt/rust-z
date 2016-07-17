@@ -6,6 +6,7 @@
 extern crate error_chain;
 extern crate clap;
 extern crate yaml_rust as yaml;
+extern crate url;
 
 use yaml::{YamlLoader, Yaml};
 use std::fs::File;
@@ -15,6 +16,8 @@ use std::collections::BTreeMap;
 
 mod errors;
 use errors::*;
+
+mod crawl;
 
 fn main() {
     if let Err(e) = main_() {
@@ -27,6 +30,7 @@ fn main_() -> Result<()> {
 
     match config {
         Config::Check => validate_plan()?,
+        Config::Crawl => crawl::crawl()?,
         _ => panic!()
     }
 
@@ -165,6 +169,11 @@ impl Battleplan {
                 good = false;
                 verr!("campaign {} mentions bogus release '{}'",
                       campaign.id, campaign.release);
+            }
+
+            if campaign.tracking_link.starts_with("http://") {
+                verr!("campaign {} has https tracking link: {}",
+                      campaign.id, campaign.tracking_link);
             }
         }
         for problem in &self.problems {
