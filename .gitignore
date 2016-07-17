@@ -1,4 +1,4 @@
 *~
-_site/target
+_site
 target/
 Cargo.lock

@@ -119,7 +119,7 @@ struct Campaign {
     pitch: String,
     top: bool,
     battlefront: String,
-    tracking_issue: String,
+    tracking_link: String,
     eta: String,
     release: String,
 }
@@ -313,7 +313,7 @@ fn campaigns_from_yaml(y: Vec<Yaml>) -> Result<Vec<Campaign>> {
         let top = try_lookup_bool!(map, "top", "campaign", id);
         let pitch = try_lookup_string!(map, "pitch", "campaign", id);
         let battlefront = try_lookup_string!(map, "battlefront", "campaign", id);
-        let tracking_issue = try_lookup_string!(map, "tracking-issue", "campaign", id);
+        let tracking_link = try_lookup_string!(map, "tracking-link", "campaign", id);
         let eta = try_lookup_string!(map, "eta", "campaign", id);
         let release = try_lookup_string!(map, "release", "campaign", id);
 
@@ -325,7 +325,7 @@ fn campaigns_from_yaml(y: Vec<Yaml>) -> Result<Vec<Campaign>> {
             top: top,
             pitch: pitch,
             battlefront: battlefront,
-            tracking_issue: tracking_issue,
+            tracking_link: tracking_link,
             eta: eta,
             release: release,
         });

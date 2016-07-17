@@ -116,7 +116,12 @@ h3 .tag {
     cursor: pointer;
 }
 
-.option-top #toggle-top {
+.option-bottom #toggle-bottom {
+    color: white;
+    background-color: black;
+}
+
+.option-details #toggle-details {
     color: white;
     background-color: black;
 }
@@ -137,9 +142,10 @@ h3 .tag {
 }
 
 div.bottom > h3 {
-    background-color: #BBC;
+    background-color: #BBB;
 }
 
 div.bottom {
-    background-color: #EEF;
+    background-color: #EEE;
 }
+

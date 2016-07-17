@@ -53,10 +53,6 @@ div#scene.all div#section-help {
     display: block;
 }
 
-div#options.option-top .bottom {
-    display: none;
-}
-
 /* ?filter-* URLs */
 
 {% for battlefront in site.data.battlefronts %}
@@ -83,6 +79,10 @@ div#select.select-battlefront-{{battlefront.id}} #section-battlefronts #battlefr
     display: block;
 }
 
+div#select.select-battlefront-{{battlefront.id}} .details {
+    display: block;
+}
+
 {% endfor %}
 
 {% for campaign in site.data.campaigns %}
@@ -92,6 +92,10 @@ div#select.select-campaign-{{campaign.id}} #section-campaigns .campaign {
 }
 
 div#select.select-campaign-{{campaign.id}} #section-campaigns #campaign-{{campaign.id}} {
+    display: block;
+}
+
+div#select.select-campaign-{{campaign.id}} .details {
     display: block;
 }
 
@@ -121,3 +125,30 @@ div#select.select-release-{{release.id | replace: ".", "_" }} #section-releases 
 
 {% endfor %}
 
+
+/* Stuff */
+
+/* Bottom items aren't displayed by default */
+.bottom {
+    display: none;
+}
+
+/* Show bottom items when the 'bottom' button is pressed */
+div#options.option-bottom .bottom {
+    display: block;
+}
+
+/* Details are only displayed when a single thing is selected with ?select- */
+.details {
+    display: none;
+}
+
+/* Oh, but they are also displayed when the 'details' button is on */
+div#options.option-details .details {
+    display: block;
+}
+
+/* Section-level exposition is turned off when single things are displayed */
+div#select.select-active .explain-section {
+    display: none;
+}

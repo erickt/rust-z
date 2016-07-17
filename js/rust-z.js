@@ -19,8 +19,11 @@ $(document).ready(function() {
     });
 
     // Show the bottom half of the battle
-    $("#toggle-top").click(function() {
-	$("#options").toggleClass("option-top");
+    $("#toggle-bottom").click(function() {
+	$("#options").toggleClass("option-bottom");
+    });
+    $("#toggle-details").click(function() {
+	$("#options").toggleClass("option-details");
     });
 });
 
@@ -73,6 +76,9 @@ function moveToScene(scene) {
     $("div#filter").addClass(scene.filter);
     $("div#select").removeClass();
     $("div#select").addClass(scene.select);
+    if (scene.select) {
+	$("div#select").addClass("select-active");
+    }
     $("div#section-controls .scene").removeClass("selected");
     $("div#section-controls .scene").
 	filter(function(i, el) { return el.innerHTML == scene.scene; }).

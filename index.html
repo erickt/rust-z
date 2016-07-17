@@ -7,6 +7,7 @@ layout: incredible
 
 <div id="section-controls">
   <span id="scene-overview" class="scene">overview</span>
+  &nbsp;|&nbsp;
   <span class="scene">battlefronts</span>
   <span class="scene">campaigns</span>
   <span class="scene">problems</span>
@@ -14,8 +15,11 @@ layout: incredible
   <span class="scene">releases</span>
   <span class="scene">valhalla</span>
   <span class="scene">help</span>
+  &nbsp;|&nbsp;
   <span class="scene">all</span>
-  <span id="toggle-top" class="toggle">top</span>
+  &nbsp;|&nbsp;
+  <span id="toggle-bottom" class="toggle">bottom</span>
+  <span id="toggle-details" class="toggle">details</span>
 </div>
 
 <div id="section-cta">
@@ -30,7 +34,7 @@ layout: incredible
 
   <h2>Battlefronts</h2>
 
-  <p>
+  <p class="explain-section">
     Battlefronts are lorem ipsum dolor sit amet, consectetur
     adipiscing elit. Proin tristique leo ac ipsum finibus
     egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
@@ -66,9 +70,14 @@ layout: incredible
           {% if campaign.battlefront != battlefront.id %}
             {% continue %}
           {% endif %}
-          {% if campaign.top %}
 
-            <div>
+          {% if campaign.top %}
+	    {% assign class = "top" %}
+	  {% else %}
+	    {% assign class = "bottom" %}
+          {% endif %}
+
+            <div class="{{class}}">
 	      {% include tag.html type="campaign" id=campaign.id %}
               <em>{{campaign.goal}}</em>.</br>{{campaign.pitch}}
 	      <div>
@@ -77,7 +86,6 @@ layout: incredible
 	      </div>
             </div>
         
-          {% endif %}
 
         {% endfor %}
 
@@ -98,7 +106,7 @@ layout: incredible
 
   <h2>Campaigns</h2>
 
-  <p>
+  <p class="explain-section">
     Campaigns are lorem ipsum dolor sit amet, consectetur
     adipiscing elit. Proin tristique leo ac ipsum finibus
     egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
@@ -125,10 +133,24 @@ layout: incredible
         class="campaign battlefront-{{campaign.battlefront}} {{top-class}}">
       <h3>
         {{campaign.goal}}
-	{% include tag.html type="campaign" id=campaign.id %}
+	{% include tag.html type="campaign" id=campaign.id %} <-- click for details
       </h3>
       <div>{{campaign.pitch | markdownify }}</div>
-      <div>ETA: {{campaign.eta}}</div>
+      <div>Tracking link: <a href="{{campaign.tracking-link}}">{{campaign.tracking-link}}</a></div>
+      <div class="details">
+	<!-- Most of this stuff is tracked mechanically with the tool -->
+	<div>Steps complete: TODO x out of y steps</div>
+	<div>ETA: {{campaign.eta}}</div>
+	<div>RFC: TODO</div>
+	<div>RFC PR: TODO</div>
+	<div>Feature name: TODO</div>
+	<div>Thumps up/down: TODO</div>
+	<div>Sub-tasks: TODO what are the sub-tasks from the tracking issue</div>
+	<div>Contributing: TODO E-easy, E-help-wanted, E-mentor issues</div>
+	<div>Timeline: TODO open/close PRs, issues</div>
+	<div>Hotness: TODO measure of relative activity per fortnight</div>
+	<div>Contributors: TODO</div>
+      </div>
 
       <div>
 	{% include tag.html type="battlefront" id=campaign.battlefront %}
@@ -150,7 +172,7 @@ layout: incredible
 
   <h2>Problems</h2>
 
-  <p>
+  <p class="explain-section">
     Problems are lorem ipsum dolor sit amet, consectetur
     adipiscing elit. Proin tristique leo ac ipsum finibus
     egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
@@ -193,7 +215,7 @@ layout: incredible
 
   <h2>Teams</h2>
 
-  <p>
+  <p class="explain-section">
     Teams are lorem ipsum dolor sit amet, consectetur
     adipiscing elit. Proin tristique leo ac ipsum finibus
     egestas. Cras elit tortor, ornare sed arcu non, laoreet egestas
