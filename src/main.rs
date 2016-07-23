@@ -1,4 +1,4 @@
-#![feature(custom_attribute, custom_derive, plugin)]
+#![feature(custom_attribute, custom_derive, plugin, try_from)]
 #![plugin(serde_macros)]
 #![allow(dead_code)]
 #![feature(question_mark)]
@@ -17,21 +17,25 @@ extern crate serde;
 extern crate serde_json;
 extern crate serde_yaml;
 extern crate regex;
+#[macro_use]
+extern crate log;
+extern crate env_logger;
 
 use yaml::{YamlLoader, Yaml};
 use std::fs::File;
 use std::path::{Path, PathBuf};
 use std::io::Read;
 use std::collections::BTreeMap;
+use serde::{Serialize, Deserialize};
+use std::fs;
+use std::io::Write;
 
 mod errors;
 use errors::*;
 
-macro_rules! verr {
-    ($fmt:expr, $($arg:tt)*) => (println!(concat!("validation error: ", $fmt), $($arg)*));
-}
-
 mod crawl;
+mod ponder;
+
 mod gh {
     pub mod client;
     pub mod models;
@@ -40,8 +44,15 @@ mod gh {
 }
 
 fn main() {
+    let mut logger = env_logger::LogBuilder::new();
+    logger.filter(None, log::LogLevelFilter::Info);
+    logger.init().unwrap();
+
     if let Err(e) = main_() {
-        println!("err: {}", e);
+        error!("err: {}", e);
+        for e in e.iter().skip(1) {
+            error!("cause: {}", e);
+        }
     }
 }
 
@@ -51,6 +62,7 @@ fn main_() -> Result<()> {
     match config {
         Config::Check => validate_plan()?,
         Config::Crawl => crawl::crawl()?,
+        Config::Ponder => ponder::ponder()?,
         _ => panic!()
     }
 
@@ -63,15 +75,17 @@ fn read_args() -> Result<Config> {
     let matches = App::new("Battleplan Rust Command Console")
         .subcommand(SubCommand::with_name("check"))
         .subcommand(SubCommand::with_name("crawl"))
-        .subcommand(SubCommand::with_name("compute"))
+        .subcommand(SubCommand::with_name("ponder"))
         .subcommand(SubCommand::with_name("compare"))
         .subcommand(SubCommand::with_name("merge"))
         .subcommand(SubCommand::with_name("triage"))
+        .subcommand(SubCommand::with_name("discover"))
         .get_matches();
 
     match matches.subcommand_name() {
         Some("check") => Ok(Config::Check),
         Some("crawl") => Ok(Config::Crawl),
+        Some("ponder") => Ok(Config::Ponder),
         Some("compare") => Ok(Config::Compare),
         Some("merge") => Ok(Config::Merge),
         Some(_) |
@@ -82,6 +96,7 @@ fn read_args() -> Result<Config> {
 enum Config {
     Check,
     Crawl,
+    Ponder,
     Compare,
     Merge,
 }
@@ -146,7 +161,6 @@ struct Campaign {
     top: bool,
     battlefront: String,
     tracking_link: String,
-    eta: String,
     release: String,
 }
 
@@ -164,6 +178,10 @@ struct Team {
 struct Release {
     id: String,
     future: bool,
+}
+
+macro_rules! verr {
+    ($fmt:expr, $($arg:tt)*) => (warn!(concat!("validation error: ", $fmt), $($arg)*));
 }
 
 impl Battleplan {
@@ -341,7 +359,6 @@ fn campaigns_from_yaml(y: Vec<Yaml>) -> Result<Vec<Campaign>> {
         let pitch = try_lookup_string!(map, "pitch", "campaign", id);
         let battlefront = try_lookup_string!(map, "battlefront", "campaign", id);
         let tracking_link = try_lookup_string!(map, "tracking-link", "campaign", id);
-        let eta = try_lookup_string!(map, "eta", "campaign", id);
         let release = try_lookup_string!(map, "release", "campaign", id);
 
         warn_extra_fields(map, "campaign", &id);
@@ -353,7 +370,6 @@ fn campaigns_from_yaml(y: Vec<Yaml>) -> Result<Vec<Campaign>> {
             pitch: pitch,
             battlefront: battlefront,
             tracking_link: tracking_link,
-            eta: eta,
             release: release,
         });
     }
@@ -424,4 +440,39 @@ fn releases_from_yaml(y: Vec<Yaml>) -> Result<Vec<Release>> {
     }
 
     Ok(res)
+}
+
+fn write_yaml<T>(name: &str, value: T) -> Result<()>
+    where T: Serialize
+{
+    let data_s = serde_yaml::to_string(&value)
+        .chain_err(|| format!("encoding yaml for {}", name))?;
+
+    let data_file = &PathBuf::from(DATA_DIR).join(format!("gen/{}.yml", name));
+    let data_dir = data_file.parent().expect("");
+    fs::create_dir_all(data_dir)?;
+    let mut f = File::create(data_file)?;
+    writeln!(f, "{}", data_s)?;
+
+    info!("{} updated", data_file.display());
+
+    Ok(())
+}
+
+fn load_yaml<T>(name: &str) -> Result<T>
+    where T: Deserialize
+{
+    let data_file = &PathBuf::from(DATA_DIR).join(format!("gen/{}.yml", name));
+    let mut file = File::open(data_file)?;
+    let mut buf = String::new();
+    file.read_to_string(&mut buf)?;
+
+    // HACK: the yaml deserializer sees " ... " as some kind of invalid
+    // "document indicator". Remove it.
+    let buf = buf.replace(" ... ", " .. ");
+
+    let value = serde_yaml::from_str(&buf)
+        .chain_err(|| format!("decoding yaml for {}", name))?;
+
+    Ok(value)
 }

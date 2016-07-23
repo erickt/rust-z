@@ -48,8 +48,8 @@
     target every platform under the sun.
 
 -
-  id: diagnostics
-  name: rustc diagnostics
+  id: ergonomics
+  name: Ergonomic improvements
   team: compiler
   top: true
   pitch: >

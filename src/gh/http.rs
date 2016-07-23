@@ -132,7 +132,6 @@ pub mod hyper_base {
 
     extern crate hyper;
 
-    use std::io;
     use url::Url;
     use errors::*;
     use self::hyper::net::{SslClient, HttpStream};
@@ -147,8 +146,7 @@ pub mod hyper_base {
         where S: SslClient<HttpStream> + NewSslClient + Send + Sync + 'static,
     {
 
-        use self::hyper::client::{Client, ProxyConfig};
-        use self::hyper::header::ContentLength;
+        use self::hyper::client::{Client};
         use self::hyper::net::{HttpsConnector};
 
         // The Hyper HTTP client

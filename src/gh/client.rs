@@ -211,8 +211,6 @@ impl Client {
 
         let url = format!("{}{}", url, qp_string);
 
-        println!("GETing: {}", &url);
-
         use super::http::hyper::download;
 
         let client = download(&Url::parse(&url).unwrap())?;

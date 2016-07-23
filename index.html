@@ -138,15 +138,27 @@ layout: incredible
       <div>{{campaign.pitch | markdownify }}</div>
       <div>Tracking link: <a href="{{campaign.tracking-link}}">{{campaign.tracking-link}}</a></div>
       <div class="details">
+        {% assign data = site.data.gen.campaigns[campaign.id] %}
+        {% if data.rfc %}
+          <div>RFC: <a href="{{ data.rfc.pr }}">#{{ data.rfc.num }}</a></div>
+          <!-- TODO link to the RFC text -->
+        {% endif %}
+        {% if data.last_updated %}
+          <div>
+            Last updated: {{ data.last_updated[0] }}
+            {% if data.last_updated[1] > 42 %}
+              <span class="super-stale">(super-stale!)</span>
+            {% elsif data.last_updated[1] > 14 %}
+              <span class="stale">(stale!)</span>
+            {% endif %}
+          </div>
+          <!-- TODO link to the RFC text -->
+        {% endif %}
         <!-- Most of this stuff is tracked mechanically with the tool -->
+        <!--
         <div>Steps complete: TODO x out of y steps</div>
-        <div>Last updated:
-          {{ site.data.gen.crawl[campaign.tracking-link][0]['GitHubIssue']['updated_at'] }}
-        </div>
         <div>FCP! TODO</div>
         <div>ETA: {{campaign.eta}}</div>
-        <div>RFC: TODO</div>
-        <div>RFC PR: TODO</div>
         <div>Feature name: TODO</div>
         <div>Thumps up/down: TODO</div>
         <div>Sub-tasks: TODO what are the sub-tasks from the tracking issue</div>
@@ -155,6 +167,7 @@ layout: incredible
         <div>Hotness: TODO measure of relative activity per fortnight</div>
         <div>Pipeline visualization: TODO</div>
         <div>Contributors: TODO</div>
+        -->
       </div>
 
       <div>

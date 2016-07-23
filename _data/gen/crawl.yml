@@ -1,4 +1,33 @@
 ---
+"https://github.com/rust-lang/rust/issues/20630": 
+  - 
+    "GitHubIssue": 
+      "assignee": ~
+      "body": "For debugging it's useful to have a debug build of std. Figuring out how to make the debugger actually locate the source in all scenarios could be complicated."
+      "closed_at": ~
+      "comments": 4
+      "comments_url": "https://api.github.com/repos/rust-lang/rust/issues/20630/comments"
+      "created_at": "2015-01-06T11:16:32Z"
+      "labels": 
+        - 
+          "color": "d7e102"
+          "name": "A-build"
+        - 
+          "color": "d7e102"
+          "name": "A-debuginfo"
+        - 
+          "color": "d7e102"
+          "name": "A-infrastructure"
+      "locked": false
+      "milestone": ~
+      "number": 20630
+      "pull_request": ~
+      "state": "open"
+      "title": "Package debug libstd with binaries"
+      "updated_at": "2016-03-27T06:08:31Z"
+      "user": 
+        "id": 147214
+        "login": "brson"
 "https://github.com/rust-lang/rust/issues/31436": 
   - 
     "GitHubIssue": 
@@ -31,3 +60,104 @@
       "user": 
         "id": 155238
         "login": "nikomatsakis"
+"https://github.com/rust-lang/rust/issues/33205": 
+  - 
+    "GitHubIssue": 
+      "assignee": ~
+      "body": "With the new MIR->LLVM backend being all but done, and being cleaner than the old trans, we can seriously think about writing yet more backends. A relatively important, and relatively easy target to translate to is WebAssembly.\r\n\r\nThe right starting strategy per @eddyb is to fork [miri](https://github.com/tsion/miri) and prototype the new backend out of tree.\r\n\r\nOne interesting point that @kripken brought up recently is that wasm is an AST with controlflow, whereas MIR is just a graph of blocks. This means that *somebody* has to \"reloop\" the controlflow back out of the graph. Most likely [binaryen](https://github.com/WebAssembly/binaryen), the C++ tool that\r\nconsumes wasm, will just *additionally* accept a basic-block form of wasm and do the conversion itself.\r\n\r\n@kripken is interested in helping with this, so I'm setting up this issue as a place for interested parties to discuss.\r\n\r\ncc @tsion @nagisa"
+      "closed_at": ~
+      "comments": 14
+      "comments_url": "https://api.github.com/repos/rust-lang/rust/issues/33205/comments"
+      "created_at": "2016-04-25T21:05:43Z"
+      "labels": []
+      "locked": false
+      "milestone": ~
+      "number": 33205
+      "pull_request": ~
+      "state": "open"
+      "title": "WebAssembly backend for rustc"
+      "updated_at": "2016-07-07T20:28:40Z"
+      "user": 
+        "id": 147214
+        "login": "brson"
+"https://github.com/rust-lang/rust/issues/34511": 
+  - 
+    "GitHubIssue": 
+      "assignee": ~
+      "body": "[RFC 1522](https://github.com/rust-lang/rfcs/pull/1522)\r\n\r\nPrior to stabilization, the following questions must be resolved:\r\n- Final syntax: whether `impl Trait` or some other syntax.\r\n- Whether to permit the feature in argument position as well.\r\n\r\nThese two questions are tied together, since some syntactic choices make sense only if argument position is allowed. A follow-up RFC is needed to resolve these questions differently than the initial (minimalistic) RFC."
+      "closed_at": ~
+      "comments": 2
+      "comments_url": "https://api.github.com/repos/rust-lang/rust/issues/34511/comments"
+      "created_at": "2016-06-27T20:51:36Z"
+      "labels": 
+        - 
+          "color": "e102d8"
+          "name": "B-RFC-approved"
+        - 
+          "color": "e102d8"
+          "name": "B-unstable"
+      "locked": false
+      "milestone": ~
+      "number": 34511
+      "pull_request": ~
+      "state": "open"
+      "title": "Tracking issue for Minimal `impl Trait` (RFC 1522)"
+      "updated_at": "2016-07-15T21:03:45Z"
+      "user": 
+        "id": 709807
+        "login": "aturon"
+"https://github.com/rust-lang/rust/issues/34826": 
+  - 
+    "GitHubIssue": 
+      "assignee": ~
+      "body": "This is a tracking issue for the default error format specified in https://github.com/rust-lang/rfcs/pull/1644.\r\n\r\nThe only major outstanding issue is to ensure that editor integration works just as well as it did before, *proven out* in a few editors like command line ones and larger IDEs. Full-integration in all editors isn't necessary and can happen just after we turn the errors on by default."
+      "closed_at": ~
+      "comments": 0
+      "comments_url": "https://api.github.com/repos/rust-lang/rust/issues/34826/comments"
+      "created_at": "2016-07-14T18:57:16Z"
+      "labels": 
+        - 
+          "color": "e102d8"
+          "name": "B-RFC-approved"
+        - 
+          "color": "bfd4f2"
+          "name": "T-compiler"
+        - 
+          "color": "bfd4f2"
+          "name": "T-tools"
+      "locked": false
+      "milestone": ~
+      "number": 34826
+      "pull_request": ~
+      "state": "open"
+      "title": "Tracking issue for enabling new error format by default"
+      "updated_at": "2016-07-14T18:57:16Z"
+      "user": 
+        "id": 64996
+        "login": "alexcrichton"
+"https://github.com/rust-lang/rust/issues/34827": 
+  - 
+    "GitHubIssue": 
+      "assignee": ~
+      "body": "Tracking issue for the `--explain` related portions of https://github.com/rust-lang/rfcs/pull/1644\r\n\r\nCurrent open questions are:\r\n\r\n* Let's look at an implementation! Does it end up being reasonable?\r\n* Is there a way to deprecate `--explain <CODE>` and instead use `--explain` to activate these errors?\r\n* Is it easy to template these longer explanations for authors?\r\n\r\ncc @jonathandturner (feel free to fill out more)"
+      "closed_at": ~
+      "comments": 1
+      "comments_url": "https://api.github.com/repos/rust-lang/rust/issues/34827/comments"
+      "created_at": "2016-07-14T18:58:37Z"
+      "labels": 
+        - 
+          "color": "e102d8"
+          "name": "B-RFC-approved"
+        - 
+          "color": "bfd4f2"
+          "name": "T-compiler"
+      "locked": false
+      "milestone": ~
+      "number": 34827
+      "pull_request": ~
+      "state": "open"
+      "title": "Tracking issue for --explain expansion"
+      "updated_at": "2016-07-20T14:53:29Z"
+      "user": 
+        "id": 64996
+        "login": "alexcrichton"

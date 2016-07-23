@@ -30,7 +30,6 @@
   top: true
   battlefront: cross
   tracking-link: TODO
-  eta: 2016-09-01
   release: "1.13"
   # tasks: tbd
 
@@ -48,7 +47,6 @@
   top: true
   battlefront: cross
   tracking-link: TODO
-  eta: 2017-01.01
   release: "1.15"
   # tasks: std-aware cargo RFC, rustup component install,
   # rust-src packaging, std-aware cargo RFC implementation, compiler-rt
@@ -70,7 +68,6 @@
   top: true
   battlefront: cross
   tracking-link: TODO
-  eta: 2016-10-01
   release: "1.15"
   # tasks: update Rust LLVM fork, update emscripten LLVM fork
   # port emscripten LLVM patches to Rust LLVM fork, make Rust
@@ -93,7 +90,6 @@
   top: true
   battlefront: cross
   tracking-link: TODO
-  eta: TODO
   release: "1.15"
 
 -
@@ -110,8 +106,7 @@
     nibh hendrerit neque, vel efficitur risus felis quis sapien. Etiam
     viverra ligula luctus lectus mollis ultrices eget nec dolor.
   battlefront: cross
-  tracking-link: TODO
-  eta: TODO
+  tracking-link: https://github.com/rust-lang/rust/issues/33205
   release: TBD
 
 ## tools campaigns
@@ -135,7 +130,6 @@
   top: true
   battlefront: rustfmt
   tracking-link: TODO
-  eta: 2016-09-10
   release: TBD
 
 -
@@ -155,8 +149,7 @@
     tincidunt, dolor ut venenatis ultrices, turpis ligula viverra
     odio, eu sollicitudin ipsum diam vel mi.
   battlefront: TODO
-  tracking-link: TODO
-  eta: TODO
+  tracking-link: https://github.com/rust-lang/rust/issues/20630
   release: TBD
 
 -
@@ -175,7 +168,6 @@
     primis in faucibus.
   battlefront: TODO
   tracking-link: TODO
-  eta: TODO
   release: TBD
 
 -
@@ -190,7 +182,6 @@
     risus vulputate pharetra.
   battlefront: TODO
   tracking-link: TODO
-  eta: TODO
   release: TBD
 
 -
@@ -206,7 +197,6 @@
     auctor sem, ac sodales nunc. Morbi ac enim dui.
   battlefront: TODO
   tracking-link: TODO
-  eta: TODO
   release: TBD
 
 -
@@ -225,7 +215,6 @@
     faucibus.
   battlefront: TODO
   tracking-link: TODO
-  eta: TODO
   release: TBD
 
 
@@ -247,7 +236,24 @@
     faucibus.
   battlefront: lang
   tracking-link: https://github.com/rust-lang/rust/issues/31436
-  eta: TODO
+  release: TBD
+
+-
+  id: conservative_impl_trait
+  goal: Introduce simple abstract return types
+  pitch: >
+    Sed vulputate dictum nunc, non faucibus erat pulvinar sit
+    amet. Class aptent taciti sociosqu ad litora torquent per conubia
+    nostra, per inceptos himenaeos. In semper erat a facilisis
+    malesuada. Vivamus sagittis, odio ut sodales viverra, est magna
+    efficitur augue, eget lacinia dui urna eu dui. Ut fermentum lacus
+    eget felis congue, sit amet accumsan risus fringilla. Ut maximus
+    lacinia lacus ac tempus. Phasellus finibus, leo a fringilla
+    semper, turpis orci consectetur ipsum, in egestas arcu risus eu
+    quam. Interdum et malesuada fames ac ante ipsum primis in
+    faucibus.
+  battlefront: lang
+  tracking-link: https://github.com/rust-lang/rust/issues/34511
   release: TBD
 
 ## compiler campaigns
@@ -268,7 +274,6 @@
   top: true
   battlefront: mir
   tracking-link: TODO
-  eta: TODO
   release: TBD
 
 -
@@ -289,7 +294,48 @@
   top: true
   battlefront: mir
   tracking-link: TODO
-  eta: TODO
+  release: TBD
+
+## ergonomics
+
+-
+  id: new-error-format
+  goal: Introduce more readable error format
+  pitch: >
+    In a ex rutrum, mollis odio eget, sodales risus. Quisque nec
+    ligula odio. Suspendisse blandit nisi vel nisl elementum
+    efficitur. Vestibulum et viverra arcu. Proin viverra nulla et
+    massa vehicula convallis. Morbi mollis pharetra lectus elementum
+    fringilla. Nam accumsan ullamcorper laoreet. Maecenas blandit
+    malesuada leo ut vestibulum. Aenean semper massa nec dui
+    consectetur feugiat. Praesent et orci tincidunt, sagittis risus
+    nec, sollicitudin velit. Nunc eleifend nisi convallis lacus
+    posuere ullamcorper nec eget ante. In feugiat ut mi quis
+    feugiat. Proin semper lacus feugiat neque semper, vel eleifend
+    ipsum volutpat. In hendrerit efficitur velit vitae feugiat.
+  top: true
+  battlefront: ergonomics
+  tracking-link: https://github.com/rust-lang/rust/issues/34826
+  release: TBD
+
+-
+  id: expanded-explain
+  goal: Make `--explain` describe problems using the user's actual code
+  pitch: >
+    In a ex rutrum, mollis odio eget, sodales risus. Quisque nec
+    ligula odio. Suspendisse blandit nisi vel nisl elementum
+    efficitur. Vestibulum et viverra arcu. Proin viverra nulla et
+    massa vehicula convallis. Morbi mollis pharetra lectus elementum
+    fringilla. Nam accumsan ullamcorper laoreet. Maecenas blandit
+    malesuada leo ut vestibulum. Aenean semper massa nec dui
+    consectetur feugiat. Praesent et orci tincidunt, sagittis risus
+    nec, sollicitudin velit. Nunc eleifend nisi convallis lacus
+    posuere ullamcorper nec eget ante. In feugiat ut mi quis
+    feugiat. Proin semper lacus feugiat neque semper, vel eleifend
+    ipsum volutpat. In hendrerit efficitur velit vitae feugiat.
+  top: true
+  battlefront: ergonomics
+  tracking-link: https://github.com/rust-lang/rust/issues/34827
   release: TBD
 
 ## other campaigns
@@ -313,7 +359,6 @@
   top: true
   battlefront: syntax-extensions
   tracking-link: TODO
-  eta: TODO
   release: TBD
   # task https://github.com/rust-lang/rfcs/pull/1566
 

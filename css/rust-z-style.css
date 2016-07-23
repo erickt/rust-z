@@ -149,3 +149,10 @@ div.bottom {
     background-color: #DDD;
 }
 
+span.stale {
+    border: 2px solid red;
+}
+
+span.super-stale {
+    border: 8px double red;
+}

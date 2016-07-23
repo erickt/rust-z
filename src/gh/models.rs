@@ -8,7 +8,7 @@ use chrono::{DateTime, UTC};
 use gh::domain::{Issue, IssueComment, Milestone, PullRequest, GitHubUser};
 use errors::*;
 
-#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd, Clone)]
 pub struct MilestoneFromJson {
     pub id: i32,
     pub number: i32,
@@ -47,7 +47,7 @@ impl MilestoneFromJson {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd, Clone)]
 pub struct LabelFromJson {
     name: String,
     color: String,
@@ -55,7 +55,7 @@ pub struct LabelFromJson {
 
 pub type PullRequestUrls = BTreeMap<String, String>;
 
-#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Serialize, Deserialize, Hash, Eq, PartialEq, Ord, PartialOrd, Clone)]
 pub struct IssueFromJson {
     pub number: i32,
     pub user: GitHubUser,
@@ -119,6 +119,7 @@ pub struct CommentFromJson {
 }
 
 impl CommentFromJson {
+    #[allow(unused_variables)] // wtf
     pub fn with_repo(self, repo: &str) -> Result<IssueComment> {
         let issue_number = self.html_url
             .split('#')
