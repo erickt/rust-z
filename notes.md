@@ -34,6 +34,7 @@
 - hotness
 - backburned campaigns
 - call out features on their own
+- show FCP status
 
 # long-term issues
 

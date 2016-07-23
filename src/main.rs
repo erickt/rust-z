@@ -64,6 +64,7 @@ fn read_args() -> Result<Config> {
         .subcommand(SubCommand::with_name("crawl"))
         .subcommand(SubCommand::with_name("compare"))
         .subcommand(SubCommand::with_name("merge"))
+        .subcommand(SubCommand::with_name("triage"))
         .get_matches();
 
     match matches.subcommand_name() {

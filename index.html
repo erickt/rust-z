@@ -61,7 +61,7 @@ layout: incredible
         class="battlefront {{top-class}}">
       <h3>
         {{battlefront.name}}
-	{% include tag.html type="battlefront" id=battlefront.id %}
+        {% include tag.html type="battlefront" id=battlefront.id %}
       </h3>
       <div>{{ battlefront.pitch | markdownify }}</div>
 
@@ -72,18 +72,18 @@ layout: incredible
           {% endif %}
 
           {% if campaign.top %}
-	    {% assign class = "top" %}
-	  {% else %}
-	    {% assign class = "bottom" %}
+            {% assign class = "top" %}
+          {% else %}
+            {% assign class = "bottom" %}
           {% endif %}
 
             <div class="{{class}}">
-	      {% include tag.html type="campaign" id=campaign.id %}
+              {% include tag.html type="campaign" id=campaign.id %}
               <em>{{campaign.goal}}</em>.</br>{{campaign.pitch}}
-	      <div>
-		<em>Expected release</em>:
-		{% include tag.html type="release" id=campaign.release %}
-	      </div>
+              <div>
+                <em>Expected release</em>:
+                {% include tag.html type="release" id=campaign.release %}
+              </div>
             </div>
         
 
@@ -94,7 +94,7 @@ layout: incredible
       </div>
       
       <div>
-	{% include tag.html type="team" id=battlefront.team %}
+        {% include tag.html type="team" id=battlefront.team %}
       </div>
     </div>
 
@@ -133,37 +133,39 @@ layout: incredible
         class="campaign battlefront-{{campaign.battlefront}} {{top-class}}">
       <h3>
         {{campaign.goal}}
-	{% include tag.html type="campaign" id=campaign.id %} <-- click for details
+        {% include tag.html type="campaign" id=campaign.id %} <-- click for details
       </h3>
       <div>{{campaign.pitch | markdownify }}</div>
       <div>Tracking link: <a href="{{campaign.tracking-link}}">{{campaign.tracking-link}}</a></div>
       <div class="details">
-	<!-- Most of this stuff is tracked mechanically with the tool -->
-	<div>Steps complete: TODO x out of y steps</div>
-	<div>Last updated:
-	  {{ site.data.gen.crawl[campaign.tracking-link][0]['GitHubIssue']['updated_at'] }}
-	</div>
-	<div>ETA: {{campaign.eta}}</div>
-	<div>RFC: TODO</div>
-	<div>RFC PR: TODO</div>
-	<div>Feature name: TODO</div>
-	<div>Thumps up/down: TODO</div>
-	<div>Sub-tasks: TODO what are the sub-tasks from the tracking issue</div>
-	<div>Contributing: TODO E-easy, E-help-wanted, E-mentor issues</div>
-	<div>Timeline: TODO open/close PRs, issues</div>
-	<div>Hotness: TODO measure of relative activity per fortnight</div>
-	<div>Contributors: TODO</div>
+        <!-- Most of this stuff is tracked mechanically with the tool -->
+        <div>Steps complete: TODO x out of y steps</div>
+        <div>Last updated:
+          {{ site.data.gen.crawl[campaign.tracking-link][0]['GitHubIssue']['updated_at'] }}
+        </div>
+        <div>FCP! TODO</div>
+        <div>ETA: {{campaign.eta}}</div>
+        <div>RFC: TODO</div>
+        <div>RFC PR: TODO</div>
+        <div>Feature name: TODO</div>
+        <div>Thumps up/down: TODO</div>
+        <div>Sub-tasks: TODO what are the sub-tasks from the tracking issue</div>
+        <div>Contributing: TODO E-easy, E-help-wanted, E-mentor issues</div>
+        <div>Timeline: TODO open/close PRs, issues</div>
+        <div>Hotness: TODO measure of relative activity per fortnight</div>
+        <div>Pipeline visualization: TODO</div>
+        <div>Contributors: TODO</div>
       </div>
 
       <div>
-	{% include tag.html type="battlefront" id=campaign.battlefront %}
+        {% include tag.html type="battlefront" id=campaign.battlefront %}
         {% for battlefront in site.data.battlefronts %}
           {% if battlefront.id != campaign.battlefront %}
             {% continue %}
           {% endif %}
-	  {% include tag.html type="team" id=battlefront.team %}
+          {% include tag.html type="team" id=battlefront.team %}
         {% endfor %}
-	{% include tag.html type="release" id=campaign.release %}
+        {% include tag.html type="release" id=campaign.release %}
       </div>
     </div>
 
@@ -194,18 +196,18 @@ layout: incredible
 
     <div id="problem-{{problem.id}}" class="problem">
       <h3>
-	{% include tag.html type="problem" id=problem.id %}
+        {% include tag.html type="problem" id=problem.id %}
       </h3>
       <div>{{problem.pitch | markdownify }}</div>
       <div><em>Links: TODO</em></div>
 
       <div>
-	{% include tag.html type="battlefront" id=problem.battlefront %}
+        {% include tag.html type="battlefront" id=problem.battlefront %}
         {% for battlefront in site.data.battlefronts %}
           {% if battlefront.id != problem.battlefront %}
             {% continue %}
           {% endif %}
-	  {% include tag.html type="team" id=battlefront.team %}
+          {% include tag.html type="team" id=battlefront.team %}
         {% endfor %}
       </div>
     </div>
@@ -287,10 +289,10 @@ layout: incredible
       <div id="release-{{release.id | replace: ".", "_" }}" class="release">
         {% include tag.html type="release" id=release.id %}
         {% for campaign in site.data.campaigns %}
-	  {% if campaign.release != release.id %}
-	    {% continue %}
-	  {% endif %}
-	  {% include tag.html type="campaign" id=campaign.id %}
+          {% if campaign.release != release.id %}
+            {% continue %}
+          {% endif %}
+          {% include tag.html type="campaign" id=campaign.id %}
         {% endfor %}
       </div>
     {% endif %}
