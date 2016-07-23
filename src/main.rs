@@ -16,6 +16,7 @@ extern crate chrono;
 extern crate serde;
 extern crate serde_json;
 extern crate serde_yaml;
+extern crate regex;
 
 use yaml::{YamlLoader, Yaml};
 use std::fs::File;
@@ -62,6 +63,7 @@ fn read_args() -> Result<Config> {
     let matches = App::new("Battleplan Rust Command Console")
         .subcommand(SubCommand::with_name("check"))
         .subcommand(SubCommand::with_name("crawl"))
+        .subcommand(SubCommand::with_name("compute"))
         .subcommand(SubCommand::with_name("compare"))
         .subcommand(SubCommand::with_name("merge"))
         .subcommand(SubCommand::with_name("triage"))

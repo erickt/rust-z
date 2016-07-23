@@ -48,7 +48,7 @@ impl Client {
 
         Client {
             token: "todo".to_string(),
-            ua: "rust-battleplan".to_string(),
+            ua: "rust battleplan (banderson@mozilla.com)".to_string(),
             rate_limit: u32::MAX,
             rate_limit_timeout: UTC::now(),
         }

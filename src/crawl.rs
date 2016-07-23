@@ -1,4 +1,4 @@
-use std::fs::{self, File};
+
 use serde_yaml;
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::iter;
@@ -9,6 +9,8 @@ use gh::models::IssueFromJson;
 use DATA_DIR;
 use std::path::PathBuf;
 use std::io::Write;
+use regex::Regex;
+use std::fs::{self, File};
 
 #[derive(Ord, PartialOrd, Eq, PartialEq, Hash, Serialize, Deserialize)]
 enum Fact {
@@ -130,6 +132,20 @@ fn learn_about_github_issue(url: &Url) -> Result<(Vec<Url>, Vec<(Url, Fact)>)> {
     let client = Client::new();
 
     let issue = client.fetch_issue(&org, &repo, &number)?;
+
+    if let Some(ref body) = issue.body {
+        // Match "rust-lang/rfcs#more-than-one-digit"
+        let rfc_ref_re = Regex::new(r"rust-lang/rfcs#(\d{1,})").expect("");
+
+        for line in body.lines() {
+            if rfc_ref_re.is_match(line) {
+                println!("WOO {}", line);
+                for cap in rfc_ref_re.captures_iter(line) {
+                    println!("WOOWHOO {}", cap.at(1).expect(""));
+                }
+            }
+        }
+    }
 
     new_facts.push((url.clone(), Fact::GitHubIssue(issue)));
 
