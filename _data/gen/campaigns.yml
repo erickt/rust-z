@@ -5,7 +5,43 @@
   "last_updated": 
     - "2016-07-15"
     - 8
+  "pipeline_status": 
+    "completed": 
+      - 4
+      - 5
+    "stages": 
+      - 
+        - 
+          "RfcFiled": []
+        - "RFC filed"
+        - "https://github.com/rust-lang/rfcs/pulls/1522"
+        - true
+      - 
+        - 
+          "RfcFcp": []
+        - "RFC entered FCP"
+        - "https://github.com/rust-lang/rfcs/pulls/1522"
+        - true
+      - 
+        - 
+          "RfcAccepted": []
+        - "RFC accepted"
+        - "https://github.com/rust-lang/rfcs/pulls/1522"
+        - true
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/34511"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/34511"
+        - false
   "rfc": 
+    "completed": true
     "num": 1522
     "pr": "https://github.com/rust-lang/rfcs/pulls/1522"
 "debug-std": 
@@ -13,7 +49,24 @@
   "fcp": ~
   "last_updated": 
     - "2016-03-27"
-    - 118
+    - 119
+  "pipeline_status": 
+    "completed": 
+      - 1
+      - 2
+    "stages": 
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/20630"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/20630"
+        - false
   "rfc": ~
 "expanded-explain": 
   "completed": false
@@ -21,7 +74,43 @@
   "last_updated": 
     - "2016-07-20"
     - 3
+  "pipeline_status": 
+    "completed": 
+      - 4
+      - 5
+    "stages": 
+      - 
+        - 
+          "RfcFiled": []
+        - "RFC filed"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "RfcFcp": []
+        - "RFC entered FCP"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "RfcAccepted": []
+        - "RFC accepted"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/34827"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/34827"
+        - false
   "rfc": 
+    "completed": true
     "num": 1644
     "pr": "https://github.com/rust-lang/rfcs/pulls/1644"
 "new-error-format": 
@@ -30,7 +119,43 @@
   "last_updated": 
     - "2016-07-14"
     - 9
+  "pipeline_status": 
+    "completed": 
+      - 4
+      - 5
+    "stages": 
+      - 
+        - 
+          "RfcFiled": []
+        - "RFC filed"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "RfcFcp": []
+        - "RFC entered FCP"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "RfcAccepted": []
+        - "RFC accepted"
+        - "https://github.com/rust-lang/rfcs/pulls/1644"
+        - true
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/34826"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/34826"
+        - false
   "rfc": 
+    "completed": true
     "num": 1644
     "pr": "https://github.com/rust-lang/rfcs/pulls/1644"
 "question_mark": 
@@ -39,7 +164,43 @@
   "last_updated": 
     - "2016-07-23"
     - 0
+  "pipeline_status": 
+    "completed": 
+      - 4
+      - 5
+    "stages": 
+      - 
+        - 
+          "RfcFiled": []
+        - "RFC filed"
+        - "https://github.com/rust-lang/rfcs/pulls/243"
+        - true
+      - 
+        - 
+          "RfcFcp": []
+        - "RFC entered FCP"
+        - "https://github.com/rust-lang/rfcs/pulls/243"
+        - true
+      - 
+        - 
+          "RfcAccepted": []
+        - "RFC accepted"
+        - "https://github.com/rust-lang/rfcs/pulls/243"
+        - true
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/31436"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/31436"
+        - false
   "rfc": 
+    "completed": true
     "num": 243
     "pr": "https://github.com/rust-lang/rfcs/pulls/243"
 "wasm-backend-proof": 
@@ -48,4 +209,21 @@
   "last_updated": 
     - "2016-07-07"
     - 16
+  "pipeline_status": 
+    "completed": 
+      - 1
+      - 2
+    "stages": 
+      - 
+        - 
+          "TrackingIssueOpen": []
+        - "Tracking issue opened"
+        - "https://github.com/rust-lang/rust/issues/33205"
+        - true
+      - 
+        - 
+          "TrackingIssueClosed": []
+        - "Tracking issue closed"
+        - "https://github.com/rust-lang/rust/issues/33205"
+        - false
   "rfc": ~

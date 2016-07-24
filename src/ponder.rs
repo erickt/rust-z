@@ -27,14 +27,14 @@ struct RfcInfo {
 #[derive(Clone, Debug, Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd, Hash)]
 struct PipelineStatus {
     completed: (usize, usize),
-    stages: Vec<(PipelineStage, Option<Url>, bool)>,
+    stages: Vec<(PipelineStage, String, Option<Url>, bool)>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd, Hash)]
 enum PipelineStage {
     RfcFiled,
     RfcFcp,
-    RfcComplete,
+    RfcAccepted,
     TrackingIssueOpen,
     TrackingTask(String),
     AssociatedPull,
@@ -165,10 +165,10 @@ fn get_pipeline_status(url_facts: &UrlFacts, url: &Url) -> PipelineStatus {
         stages.push((PipelineStage::RfcFiled, Some(rfc_info.pr.clone()), true));
         if rfc_info.completed {
             stages.push((PipelineStage::RfcFcp, Some(rfc_info.pr.clone()), true));
-            stages.push((PipelineStage::RfcComplete, Some(rfc_info.pr.clone()), true));
+            stages.push((PipelineStage::RfcAccepted, Some(rfc_info.pr.clone()), true));
         } else {
             stages.push((PipelineStage::RfcFcp, Some(rfc_info.pr.clone()), false));
-            stages.push((PipelineStage::RfcComplete, Some(rfc_info.pr.clone()), false));
+            stages.push((PipelineStage::RfcAccepted, Some(rfc_info.pr.clone()), false));
         }
     }
 
@@ -184,7 +184,23 @@ fn get_pipeline_status(url_facts: &UrlFacts, url: &Url) -> PipelineStatus {
         stages.push((PipelineStage::TrackingIssueClosed, None, false));
     }
 
-    let completed = stages.iter().filter(|&&(_, _, completed)| completed).count();
+    let stages = stages.into_iter().map(|(stage, url, completed)| {
+        let desc = match stage {
+            PipelineStage::RfcFiled => "RFC filed",
+            PipelineStage::RfcFcp => "RFC entered FCP",
+            PipelineStage::RfcAccepted => "RFC accepted",
+            PipelineStage::TrackingIssueOpen => "Tracking issue opened",
+            PipelineStage::TrackingTask(ref s) => s,
+            PipelineStage::AssociatedPull => panic!(),
+            PipelineStage::TrackingIssueFcp => "Tracking issue FCP",
+            PipelineStage::TrackingIssueClosed => "Tracking issue closed",
+        };
+
+        (stage.clone(), desc.to_string(), url, completed)
+    });
+
+    let stages: Vec<_> = stages.collect();
+    let completed = stages.iter().filter(|&&(_, _, _, completed)| completed).count();
     let total = stages.len();
 
     PipelineStatus {

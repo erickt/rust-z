@@ -151,6 +151,20 @@ layout: incredible
           </div>
           <!-- TODO link to the RFC text -->
         {% endif %}
+
+        <div class="pipeline">
+          {% for stage in data.pipeline_status.stages %}
+          {% if stage[3] %}
+            {% assign class = "complete" %}
+          {% else %}
+            {% assign class = "incomplete" %}
+          {% endif %}
+          <span class="{{ class  }}">
+            <a href="{{ stage[2] }}">{{ stage[1] }}</a>
+          </span>
+          {% endfor %}
+        </div>
+          
         <!-- Most of this stuff is tracked mechanically with the tool -->
         <!--
         <div>Steps complete: TODO x out of y steps</div>

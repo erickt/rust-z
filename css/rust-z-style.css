@@ -156,3 +156,39 @@ span.stale {
 span.super-stale {
     border: 8px double red;
 }
+
+div.pipeline {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.pipeline > span {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 1px 10px 1px 10px;
+    font-size: 0.8rem;
+    flex-basis: 1rem;
+    flex-grow: 1;
+}
+
+div.pipeline > .complete {
+    background-color: black;
+    border: 1px solid white;
+    color: #888;
+}
+
+div.pipeline > .incomplete {
+    background-color: white;
+    border: 1px solid black;
+    color: #888;
+}
+
+div.pipeline > .complete > a {
+    color: #888;
+    text-decoration: none;
+}
+
+div.pipeline > .incomplete > a {
+    color: #888;
+    text-decoration: none;
+}
