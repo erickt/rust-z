@@ -35,6 +35,24 @@
     new optimizations.
 
 -
+  id: lang
+  name: Language development
+  team: lang
+  top: true
+  pitch: >
+    Fusce vitae aliquam odio, vel dignissim diam. Donec eu bibendum
+    orci. Vivamus tempus elit id dolor sollicitudin viverra. Aenean
+    lacus odio, maximus a lacus pulvinar, tincidunt congue
+    ante. Maecenas ullamcorper dictum dignissim. Cras interdum enim ut
+    libero pharetra interdum. Nullam eget massa ornare, tempor arcu
+    non, ultricies arcu. Nam vitae leo a enim rutrum lobortis. Fusce
+    aliquet lacinia magna id venenatis. Sed lacinia in dolor a
+    porta. Curabitur maximus turpis non tortor accumsan
+    gravida. Praesent vitae sem hendrerit, vulputate felis et,
+    accumsan enim. Curabitur et odio ac lectus elementum
+    imperdiet. Maecenas consequat mattis lacus id vehicula.
+
+-
   id: cross
   name: Cross compilation
   team: tools
@@ -75,23 +93,6 @@
     eleifend diam.
 
 # Other battlefronts
-
--
-  id: lang
-  name: Language development
-  team: lang
-  pitch: >
-    Fusce vitae aliquam odio, vel dignissim diam. Donec eu bibendum
-    orci. Vivamus tempus elit id dolor sollicitudin viverra. Aenean
-    lacus odio, maximus a lacus pulvinar, tincidunt congue
-    ante. Maecenas ullamcorper dictum dignissim. Cras interdum enim ut
-    libero pharetra interdum. Nullam eget massa ornare, tempor arcu
-    non, ultricies arcu. Nam vitae leo a enim rutrum lobortis. Fusce
-    aliquet lacinia magna id venenatis. Sed lacinia in dolor a
-    porta. Curabitur maximus turpis non tortor accumsan
-    gravida. Praesent vitae sem hendrerit, vulputate felis et,
-    accumsan enim. Curabitur et odio ac lectus elementum
-    imperdiet. Maecenas consequat mattis lacus id vehicula.
 
 -
   id: stdlib

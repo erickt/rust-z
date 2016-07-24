@@ -79,11 +79,8 @@ layout: incredible
 
             <div class="{{class}}">
               {% include tag.html type="campaign" id=campaign.id %}
-              <em>{{campaign.goal}}</em>.</br>{{campaign.pitch}}
-              <div>
-                <em>Expected release</em>:
-                {% include tag.html type="release" id=campaign.release %}
-              </div>
+              <em>{{campaign.goal}}</em>.
+              {% include tag.html type="release" id=campaign.release %}
             </div>
         
 

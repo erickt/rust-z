@@ -235,6 +235,7 @@
     quam. Interdum et malesuada fames ac ante ipsum primis in
     faucibus.
   battlefront: lang
+  top: true
   tracking-link: https://github.com/rust-lang/rust/issues/31436
   release: TBD
 
@@ -253,6 +254,7 @@
     quam. Interdum et malesuada fames ac ante ipsum primis in
     faucibus.
   battlefront: lang
+  top: true
   tracking-link: https://github.com/rust-lang/rust/issues/34511
   release: TBD
 
