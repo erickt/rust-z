@@ -14,12 +14,32 @@ struct Campaign {
     fcp: Option<Url>,
     completed: bool,
     last_updated: Option<(String, u32)>, // (Y-m-d, days-since-update)
+    pipeline_status: PipelineStatus,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd, Hash)]
 struct RfcInfo {
     num: u32,
     pr: Url,
+    completed: bool,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd, Hash)]
+struct PipelineStatus {
+    completed: (usize, usize),
+    stages: Vec<(PipelineStage, Option<Url>, bool)>,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize, Eq, Ord, PartialEq, PartialOrd, Hash)]
+enum PipelineStage {
+    RfcFiled,
+    RfcFcp,
+    RfcComplete,
+    TrackingIssueOpen,
+    TrackingTask(String),
+    AssociatedPull,
+    TrackingIssueFcp,
+    TrackingIssueClosed,
 }
 
 pub fn ponder() -> Result<()> {
@@ -42,12 +62,14 @@ pub fn ponder() -> Result<()> {
 
         let rfc_info = get_rfc_info(url_facts, url);
         let last_updated = get_last_updated(url_facts, url);
+        let pipeline_status = get_pipeline_status(url_facts, url);
 
         let campaign = Campaign {
             rfc: rfc_info,
             fcp: None,
             completed: false,
             last_updated: last_updated,
+            pipeline_status: pipeline_status,
         };
 
         campaigns.insert(campaign_id.to_string(), campaign);
@@ -77,6 +99,7 @@ fn get_rfc_info(url_facts: &UrlFacts, campaign_url: &Url) -> Option<RfcInfo> {
 
     let facts = &url_facts[campaign_url];
     let rfc_number;
+    let completed;
 
     if let Some(ref issue) = facts.gh_issue() {
         let issue_body = issue.body.as_ref().map(Deref::deref).unwrap_or("");
@@ -91,6 +114,9 @@ fn get_rfc_info(url_facts: &UrlFacts, campaign_url: &Url) -> Option<RfcInfo> {
         }
 
         rfc_number = rfc_numbers[0];
+        // Assume the RFC is completed since this was parsed out
+        // of a tracking issue
+        completed = true;
     } else {
         return None;
     }
@@ -99,7 +125,8 @@ fn get_rfc_info(url_facts: &UrlFacts, campaign_url: &Url) -> Option<RfcInfo> {
 
     Some(RfcInfo {
         num: rfc_number,
-        pr: rfc_url
+        pr: rfc_url,
+        completed: completed,
     })
 }
 
@@ -122,6 +149,50 @@ fn get_last_updated(url_facts: &UrlFacts, campaign_url: &Url) -> Option<(String,
         None
     }
 }
+
+fn get_pipeline_status(url_facts: &UrlFacts, url: &Url) -> PipelineStatus {
+    if url_facts.get(url).is_none() {
+        return PipelineStatus { completed: (0, 0), stages: Vec::new() };
+    }
+
+    let facts = &url_facts[url];
+
+    let rfc_info = get_rfc_info(url_facts, url);
+
+    let mut stages = Vec::new();
+
+    if let Some(ref rfc_info) = rfc_info {
+        stages.push((PipelineStage::RfcFiled, Some(rfc_info.pr.clone()), true));
+        if rfc_info.completed {
+            stages.push((PipelineStage::RfcFcp, Some(rfc_info.pr.clone()), true));
+            stages.push((PipelineStage::RfcComplete, Some(rfc_info.pr.clone()), true));
+        } else {
+            stages.push((PipelineStage::RfcFcp, Some(rfc_info.pr.clone()), false));
+            stages.push((PipelineStage::RfcComplete, Some(rfc_info.pr.clone()), false));
+        }
+    }
+
+    if let Some(ref issue) = facts.gh_issue() {
+        stages.push((PipelineStage::TrackingIssueOpen, Some(url.clone()), true));
+        // TODO FCP
+        // TODO Tracking Tasks
+        // TODO Associated Pulls
+        let completed = issue.closed_at.is_some();
+        stages.push((PipelineStage::TrackingIssueClosed, Some(url.clone()), completed));
+    } else {
+        stages.push((PipelineStage::TrackingIssueOpen, None, false));
+        stages.push((PipelineStage::TrackingIssueClosed, None, false));
+    }
+
+    let completed = stages.iter().filter(|&&(_, _, completed)| completed).count();
+    let total = stages.len();
+
+    PipelineStatus {
+        completed: (completed, total),
+        stages: stages,
+    }
+}
+
 fn parse_rfc_numbers(text: &str) -> Vec<u32> {
     // Match "rust-lang/rfcs#more-than-one-digit"
     let rfc_ref_re = Regex::new(r"rust-lang/rfcs#(\d+)").expect("");
