@@ -1,5 +1,4 @@
 #![feature(custom_attribute, custom_derive, plugin, try_from)]
-#![plugin(serde_macros)]
 #![allow(dead_code)]
 #![feature(question_mark)]
 #![feature(custom_derive)]
@@ -13,9 +12,6 @@ extern crate url;
 #[macro_use]
 extern crate hyper;
 extern crate chrono;
-extern crate serde;
-extern crate serde_json;
-extern crate serde_yaml;
 extern crate regex;
 #[macro_use]
 extern crate log;
@@ -26,7 +22,6 @@ use std::fs::File;
 use std::path::{Path, PathBuf};
 use std::io::Read;
 use std::collections::BTreeMap;
-use serde::{Serialize, Deserialize};
 use std::fs;
 use std::io::Write;
 
@@ -443,36 +438,11 @@ fn releases_from_yaml(y: Vec<Yaml>) -> Result<Vec<Release>> {
 }
 
 fn write_yaml<T>(name: &str, value: T) -> Result<()>
-    where T: Serialize
 {
-    let data_s = serde_yaml::to_string(&value)
-        .chain_err(|| format!("encoding yaml for {}", name))?;
-
-    let data_file = &PathBuf::from(DATA_DIR).join(format!("gen/{}.yml", name));
-    let data_dir = data_file.parent().expect("");
-    fs::create_dir_all(data_dir)?;
-    let mut f = File::create(data_file)?;
-    writeln!(f, "{}", data_s)?;
-
-    info!("{} updated", data_file.display());
-
-    Ok(())
+    panic!()
 }
 
 fn load_yaml<T>(name: &str) -> Result<T>
-    where T: Deserialize
 {
-    let data_file = &PathBuf::from(DATA_DIR).join(format!("gen/{}.yml", name));
-    let mut file = File::open(data_file)?;
-    let mut buf = String::new();
-    file.read_to_string(&mut buf)?;
-
-    // HACK: the yaml deserializer sees " ... " as some kind of invalid
-    // "document indicator". Remove it.
-    let buf = buf.replace(" ... ", " .. ");
-
-    let value = serde_yaml::from_str(&buf)
-        .chain_err(|| format!("decoding yaml for {}", name))?;
-
-    Ok(value)
+    panic!()
 }
