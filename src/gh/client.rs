@@ -123,6 +123,8 @@ impl Client {
         let mut buf = String::new();
         try!(res.read_to_string(&mut buf));
 
+        let models = Vec::new();
+        /*
         let mut models = serde_json::from_str::<Vec<M>>(&buf)
                               .chain_err(|| "deserializing models")?;
 
@@ -139,6 +141,7 @@ impl Client {
 
             next_url = Self::next_page(&next_res.headers);
         }
+        */
 
         Ok(models)
     }
