@@ -166,8 +166,8 @@
     - 0
   "pipeline_status": 
     "completed": 
-      - 4
       - 5
+      - 9
     "stages": 
       - 
         - 
@@ -193,6 +193,30 @@
         - "Tracking issue opened"
         - "https://github.com/rust-lang/rust/issues/31436"
         - true
+      - 
+        - 
+          "TrackingTask": "`?` operator that is roughly equivalent to `try!` - #31954"
+        - "`?` operator that is roughly equivalent to `try!` - #31954"
+        - ~
+        - true
+      - 
+        - 
+          "TrackingTask": "`catch { .. }` expression"
+        - "`catch { .. }` expression"
+        - ~
+        - false
+      - 
+        - 
+          "TrackingTask": "port `try!` to use `?`"
+        - "port `try!` to use `?`"
+        - ~
+        - false
+      - 
+        - 
+          "TrackingTask": "experiment with some form of `Carrier` trait for handling options (requires amendment RFC)"
+        - "experiment with some form of `Carrier` trait for handling options (requires amendment RFC)"
+        - ~
+        - false
       - 
         - 
           "TrackingIssueClosed": []

@@ -175,7 +175,11 @@ fn get_pipeline_status(url_facts: &UrlFacts, url: &Url) -> PipelineStatus {
     if let Some(ref issue) = facts.gh_issue() {
         stages.push((PipelineStage::TrackingIssueOpen, Some(url.clone()), true));
         // TODO FCP
-        // TODO Tracking Tasks
+        if let Some(ref body) = issue.body {
+            for (desc, url, completed) in parse_steps_from_issue_body(url_facts, body) {
+                stages.push((PipelineStage::TrackingTask(desc), url, completed));
+            }
+        }
         // TODO Associated Pulls
         let completed = issue.closed_at.is_some();
         stages.push((PipelineStage::TrackingIssueClosed, Some(url.clone()), completed));
@@ -207,6 +211,26 @@ fn get_pipeline_status(url_facts: &UrlFacts, url: &Url) -> PipelineStatus {
         completed: (completed, total),
         stages: stages,
     }
+}
+
+fn parse_steps_from_issue_body(_url_facts: &UrlFacts, body: &str)
+                               -> Vec<(String, Option<Url>, bool)>  {
+    let mut steps = Vec::new();
+    
+    let re = Regex::new(r"(\*|-) +\[(.)\] +(.*)").expect("");
+
+    for line in body.lines() {
+        if let Some(cap) = re.captures(line) {
+            let indicator = cap.at(2).expect("");
+            let desc = cap.at(3).expect("");
+            // TODO scan desc for Urls
+            // TODO follow urls to look for completion
+            let completed = !indicator.chars().all(char::is_whitespace);
+            steps.push((desc.to_string(), None, completed));
+        }
+    }
+
+    steps
 }
 
 fn parse_rfc_numbers(text: &str) -> Vec<u32> {

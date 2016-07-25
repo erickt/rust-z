@@ -192,3 +192,12 @@ div.pipeline > .incomplete > a {
     color: #888;
     text-decoration: none;
 }
+
+div#section-releases .release {
+    border-bottom: 1px solid black;
+}
+
+div#section-releases .release > div {
+    padding-left: 50px;
+}
+
